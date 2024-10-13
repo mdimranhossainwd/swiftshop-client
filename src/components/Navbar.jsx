@@ -29,14 +29,14 @@ const HeaderMenu = () => {
   );
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className="bg-gray-100" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-lg">SwiftShop</p>
+          <p className="font-bold text-xl text-[#128AED]">SwiftShop</p>
         </NavbarBrand>
       </NavbarContent>
 
