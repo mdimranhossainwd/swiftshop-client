@@ -1,4 +1,5 @@
 import BenefitsSection from "../components/BenefitsSection";
+import Brand from "../components/Brand";
 import Carousel from "../components/Carousel";
 import Newsletter from "../components/Newsletter";
 const Homepages = () => {
@@ -7,6 +8,7 @@ const Homepages = () => {
       <Carousel />
       <BenefitsSection />
       <Newsletter />
+      <Brand />
     </div>
   );
 };
