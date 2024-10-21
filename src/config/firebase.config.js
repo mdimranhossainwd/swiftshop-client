@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.SWIFT_SHOP_APIKEY,
-  authDomain: import.meta.env.SWIFT_SHOP_AUTHDOMAIN,
-  projectId: import.meta.env.SWIFT_SHOP_PROJECTID,
-  storageBucket: import.meta.env.SWIFT_SHOP_STROGEBUCKET,
-  messagingSenderId: import.meta.env.SWIFT_SHOP_MESSAGINGSENDERID,
-  appId: import.meta.env.SWIFT_SHOP_APPID,
+  apiKey: import.meta.env.VITE_SWIFTSHOP_API_KEY,
+  authDomain: import.meta.env.VITE_SWIFTSHOP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_SWIFTSHOP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_SWIFTSHOP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_SWIFTSHOP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_SWIFTSHOP_APP_ID,
 };
 
 // Initialize Firebase
