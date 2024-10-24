@@ -55,7 +55,7 @@ const Register = () => {
     <div>
       <div className="flex items-center justify-center min-h-screen bg-gray-100 py-10">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
-          <h2 className="text-2xl font-josefin font-bold mb-2 text-center">
+          <h2 className="text-2xl font-oswald font-bold mb-2 text-center">
             Create Your Account
           </h2>
           <p className="text-gray-600  mb-4 text-center">
@@ -131,7 +131,7 @@ const Register = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#128AED] text-white py-2 px-4 rounded-lg "
+              className="w-full bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 text-white py-2 px-4 rounded-sm "
             >
               Sign up
             </button>
