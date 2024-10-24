@@ -6,11 +6,11 @@ const Newsletter = () => {
       </div>
       <div className="text-center pt-8">
         <input
-          className="py-2 px-5 rounded-full w-1/3"
+          className="py-3 px-8 rounded-full w-1/3"
           type="text"
           placeholder="Type Here Your Email Address Here..."
         />
-        <button className="text-white font-semibold ml-4 bg-[#128AED] py-3 px-10 rounded-full">
+        <button className="text-white font-semibold ml-3 bg-[#128AED] py-3 px-14 rounded-full">
           Sign Up
         </button>
       </div>
