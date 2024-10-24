@@ -28,7 +28,7 @@ const Carousel = () => {
         <SwiperSlide>
           <div className="relative w-full h-[500px]">
             <img
-              src="https://plus.unsplash.com/premium_photo-1683121817275-85d1dcf9e4c4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1498049860654-af1a5c566876?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Banner 1"
               className="object-cover w-full h-full"
             />
@@ -72,7 +72,7 @@ const Carousel = () => {
         <SwiperSlide>
           <div className="relative w-full h-[500px]">
             <img
-              src="https://plus.unsplash.com/premium_photo-1700824490915-ce7cfd18efcd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Banner 2"
               className="object-cover w-full h-full"
             />
@@ -97,7 +97,7 @@ const Carousel = () => {
                   transition={{ duration: 0.6 }}
                   className="animated-heading font-oswald text-5xl md:text-7xl mb-14 font-bold text-white"
                 >
-                  <span className="text-[#128AED]">Fashion</span> Meets
+                  <span className="text-[#128AED]">Tech</span> Meets
                   Functionalityn
                 </motion.h2>
                 <motion.button
@@ -117,7 +117,7 @@ const Carousel = () => {
         <SwiperSlide>
           <div className="relative w-full h-[500px]">
             <img
-              src="https://images.unsplash.com/photo-1585202505656-c6b17753db12?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1605&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Banner 3"
               className="object-cover w-full h-full"
             />
