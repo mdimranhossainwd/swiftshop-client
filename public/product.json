@@ -1,0 +1,280 @@
+[
+  {
+    "name": "iPhone 15 Pro Max",
+    "categoryId": "1",
+    "price": 1299.99,
+    "stock": 25,
+    "description": "The latest iPhone 15 Pro Max with a 6.7-inch Super Retina XDR display, A17 Bionic chip, and advanced camera system.",
+    "highlights": [
+      "6.7-inch Super Retina XDR display",
+      "A17 Bionic chip",
+      "Triple 48MP camera system",
+      "Face ID for secure authentication",
+      "5G capable"
+    ],
+    "specifications": {
+      "display": "6.7-inch OLED",
+      "processor": "A17 Bionic chip",
+      "ram": "8GB",
+      "storage": "256GB",
+      "camera": {
+        "rear": "48MP + 12MP Ultra Wide + 12MP Telephoto",
+        "front": "12MP TrueDepth"
+      },
+      "battery": "4500mAh",
+      "os": "iOS 17",
+      "connectivity": ["5G", "Wi-Fi 6E", "Bluetooth 5.3", "Lightning Port"]
+    },
+    "images": [
+      "https://i.ibb.co.com/DMHpfT1/Apple-i-Phone-15-Pro-Max-blue-titanium-featured-image-packshot-review-1024x691.jpg",
+      "https://i.ibb.co.com/T4Qn4JM/i-Phone-15-Plus-2-6-5363.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.8,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "MacBook Pro 16-inch",
+    "categoryId": "1",
+    "price": 2499.99,
+    "stock": 15,
+    "description": "High-performance MacBook Pro 16-inch with M2 Max chip, 32GB RAM, and a stunning Liquid Retina XDR display.",
+    "highlights": [
+      "16-inch Liquid Retina XDR display",
+      "M2 Max chip",
+      "32GB unified memory",
+      "1TB SSD storage",
+      "Up to 21 hours of battery life"
+    ],
+    "specifications": {
+      "display": "16-inch Liquid Retina XDR",
+      "processor": "Apple M2 Max",
+      "ram": "32GB",
+      "storage": "1TB SSD",
+      "graphics": "Integrated 38-core GPU",
+      "battery": "100Wh lithium-polymer",
+      "os": "macOS Monterey",
+      "connectivity": ["Wi-Fi 6", "Bluetooth 5.2", "Thunderbolt 4", "HDMI port"]
+    },
+    "images": [
+      "https://i.ibb.co.com/g42Xz1p/16inchmacbookproinbangladesh-i-Stock-BD.webp",
+      "https://i.ibb.co.com/GMfHnhQ/mbp-silver-gallery1-202206-3cfba491-cc17-44c7-aec1-bf875d85497b.webp"
+    ],
+    "brand": "Apple",
+    "rating": 4.9,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "iPad Pro 12.9-inch",
+    "categoryId": "1",
+    "price": 1099.99,
+    "stock": 40,
+    "description": "The iPad Pro 12.9-inch with M2 chip, featuring a Liquid Retina XDR display and Apple Pencil 2nd generation support.",
+    "highlights": [
+      "12.9-inch Liquid Retina XDR display",
+      "Apple M2 chip",
+      "Supports Apple Pencil 2nd generation",
+      "5G connectivity",
+      "Up to 10 hours of battery life"
+    ],
+    "specifications": {
+      "display": "12.9-inch Liquid Retina XDR",
+      "processor": "Apple M2",
+      "ram": "16GB",
+      "storage": "512GB",
+      "camera": {
+        "rear": "12MP Wide + 10MP Ultra Wide",
+        "front": "12MP TrueDepth"
+      },
+      "battery": "10758mAh",
+      "os": "iPadOS 17",
+      "connectivity": ["5G", "Wi-Fi 6", "Bluetooth 5.1", "USB-C Thunderbolt"]
+    },
+    "images": [
+      "https://i.ibb.co.com/hHMkBqJ/71n-Mme-FRFVL.jpg",
+      "https://i.ibb.co.com/0rGM7H7/my2v2zp-a-500x500.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.7,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "Apple Watch Series 9",
+    "categoryId": "1",
+    "price": 399.99,
+    "stock": 60,
+    "description": "The Apple Watch Series 9 with a brighter always-on display, new health sensors, and advanced fitness tracking.",
+    "highlights": [
+      "Brighter always-on Retina display",
+      "Blood oxygen and ECG apps",
+      "Swim-proof design",
+      "Sleep tracking",
+      "18-hour battery life"
+    ],
+    "specifications": {
+      "display": "1.9-inch Retina",
+      "processor": "Apple S9 chip",
+      "storage": "32GB",
+      "healthFeatures": ["ECG", "Blood Oxygen Monitoring", "Heart Rate"],
+      "battery": "18 hours",
+      "os": "watchOS 10",
+      "connectivity": ["LTE", "Wi-Fi", "Bluetooth 5.3", "NFC"]
+    },
+    "images": [
+      "https://i.ibb.co.com/Tq3FB34/refurb-45-stainless-gold-sport-band-clay-s9.jpg",
+      "https://i.ibb.co.com/tZ9Ph5c/Apple-Watch-Series-9-Stainless-Steel-Case-GPS-Cellular-Black-7438.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.5,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "AirPods Pro 2nd Generation",
+    "categoryId": "1",
+    "price": 249.99,
+    "stock": 100,
+    "description": "Apple AirPods Pro 2nd Generation with improved Active Noise Cancellation, Adaptive Transparency, and longer battery life.",
+    "highlights": [
+      "Active Noise Cancellation",
+      "Adaptive Transparency mode",
+      "Spatial Audio",
+      "Sweat and water resistant",
+      "Up to 6 hours of listening time"
+    ],
+    "specifications": {
+      "type": "In-ear",
+      "processor": "Apple H2 chip",
+      "batteryLife": "6 hours (earbuds), 30 hours (with case)",
+      "charging": "MagSafe and wireless charging",
+      "connectivity": ["Bluetooth 5.3"]
+    },
+    "images": [
+      "https://i.ibb.co.com/vPLvGW5/Apple-Air-Pods-Pro-2-USBC-Hero.jpg",
+      "https://i.ibb.co.com/gjfxrNN/Air-Pods-Pro-2nd-generation-c-1370.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.6,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "Apple Monitor 4K",
+    "categoryId": "1",
+    "price": 179.99,
+    "stock": 75,
+    "description": "The Apple Monitor 4K with A15 Bionic chip, HDR10+ support, and Dolby Vision for an immersive entertainment experience.",
+    "highlights": [
+      "4K HDR with Dolby Vision",
+      "A15 Bionic chip",
+      "Siri Remote with touch-enabled clickpad",
+      "Apple Arcade support",
+      "HomeKit integration"
+    ],
+    "specifications": {
+      "resolution": "4K (2160p)",
+      "processor": "A15 Bionic",
+      "storage": "64GB",
+      "connectivity": ["Wi-Fi 6", "Bluetooth 5.0", "HDMI 2.1", "Ethernet"],
+      "os": "tvOS 17"
+    },
+    "images": [
+      "https://i.ibb.co.com/v3vyb83/175315-2020.jpg",
+      "https://i.ibb.co.com/0mDBLB5/i-Mac-M3-2-ports-Green-PDP-Image-Position-1-global.webp"
+    ],
+    "brand": "Apple",
+    "rating": 4.4,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "HomePod Mini",
+    "categoryId": "1",
+    "price": 99.99,
+    "stock": 120,
+    "description": "The HomePod Mini, a smart speaker with high-fidelity sound, Siri integration, and smart home controls.",
+    "highlights": [
+      "360-degree audio",
+      "Siri voice assistant",
+      "Smart home control",
+      "Intercom support",
+      "Compact design"
+    ],
+    "specifications": {
+      "dimensions": "3.3 inches tall",
+      "weight": "0.76 pounds",
+      "connectivity": ["Wi-Fi", "Bluetooth 5.0", "Ultra Wideband"],
+      "audio": "Full-range driver and dual passive radiators",
+      "os": "HomePod Software"
+    },
+    "images": [
+      "https://i.ibb.co.com/YdxwNwb/Home-Pod-Mini.jpg",
+      "https://i.ibb.co.com/rQdC23d/Home-Pod-Mini-SG-98920.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.3,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "Magic Keyboard for iPad",
+    "categoryId": "1",
+    "price": 299.99,
+    "stock": 50,
+    "description": "The Magic Keyboard for iPad with a trackpad, backlit keys, and a floating cantilever design.",
+    "highlights": [
+      "Floating cantilever design",
+      "Built-in trackpad",
+      "Backlit keys",
+      "USB-C pass-through charging",
+      "Compatible with iPad Pro and Air"
+    ],
+    "specifications": {
+      "keyboardType": "Full-size",
+      "trackpad": "Multi-touch gesture support",
+      "compatibility": ["iPad Pro 11-inch", "iPad Air 4th and 5th gen"],
+      "charging": "USB-C pass-through",
+      "weight": "601 grams"
+    },
+    "images": [
+      "https://i.ibb.co.com/M2LwZxb/MXQT2-LL-AV2.webp",
+      "https://i.ibb.co.com/K0VKX2F/2471-50708.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.7,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  },
+  {
+    "name": "Apple Pencil 2nd Generation",
+    "categoryId": "1",
+    "price": 129.99,
+    "stock": 90,
+    "description": "The Apple Pencil 2nd Generation for iPad Pro and iPad Air with pixel-perfect precision and double-tap functionality.",
+    "highlights": [
+      "Pixel-perfect precision",
+      "Double-tap for tool switching",
+      "Magnetic attachment and wireless charging",
+      "Tilt and pressure sensitivity",
+      "Compatible with iPad Pro and iPad Air"
+    ],
+    "specifications": {
+      "length": "6.53 inches",
+      "weight": "20.7 grams",
+      "compatibility": ["iPad Pro 11-inch", "iPad Pro 12.9-inch", "iPad Air"],
+      "charging": "Magnetic wireless charging",
+      "latency": "Low-latency input"
+    },
+    "images": [
+      "https://i.ibb.co.com/cJsRhtf/MU8-F2-AV1.jpg",
+      "https://i.ibb.co.com/cT4BjCg/24-2-4.jpg"
+    ],
+    "brand": "Apple",
+    "rating": 4.8,
+    "warranty": "1 year manufacturer warranty",
+    "returnPolicy": "30-day return policy"
+  }
+]
