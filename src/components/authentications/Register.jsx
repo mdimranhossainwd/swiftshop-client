@@ -64,7 +64,7 @@ const Register = () => {
 
           <button
             onClick={handleGoogleSignUp}
-            className="w-full flex items-center justify-center bg-white border border-gray-300 py-2 px-4 text-black font-semibold rounded-lg hover:bg-gray-50 mb-4 gap-3"
+            className="w-full flex items-center justify-center bg-white border border-gray-300 py-2 px-4 text-black font-semibold rounded-lg hover:bg-gradient-to-r hover:from-blue-700 hover:via-blue-500 hover:to-blue-400 hover:text-white mb-4 gap-3"
           >
             <img
               className="w-5 h-5"

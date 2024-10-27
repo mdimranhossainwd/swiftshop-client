@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -12,10 +13,9 @@ const Login = () => {
   const handleLogin = async (data) => {
     const { email, password } = data;
     try {
-      await signIn(email, password);
-      //   console.log(result);
-      //   toast.success("SignIn Successfully");
-      //   const { data } = await axios.post("/jwt", result?.user?.email);
+      const result = await signIn(email, password);
+      console.log(result);
+      toast.success("SignIn Successfully");
       navigate(from, { replace: true });
     } catch (err) {
       console.log(err);
@@ -27,7 +27,6 @@ const Login = () => {
     try {
       const result = await signInWithGoogle();
       console.log(result);
-      //   const { data } = await axios.post("/jwt", result?.user?.email);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -46,7 +45,7 @@ const Login = () => {
 
           <button
             onClick={handleGoogleSignUp}
-            className="w-full flex items-center justify-center gap-3 text-md border-gray-300 border text-black font-semibold py-3 rounded-md mb-6"
+            className="w-full flex items-center justify-center bg-white border border-gray-300 py-3 px-4 text-black font-semibold rounded-sm hover:bg-gradient-to-r hover:from-blue-300 hover:via-blue-400 hover:to-blue-700 hover:text-white mb-4 gap-3"
           >
             {/* <FaGoogle /> */}
             <img
