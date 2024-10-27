@@ -55,7 +55,7 @@ const Features = () => {
           {featureData?.length > 0 ? (
             featureData.map((item) => <Card key={item?._id} product={item} />)
           ) : (
-            <p>Loading courses...</p> // This message will be displayed if getData is not yet available.
+            <div className="flex items-center"></div>
           )}
         </Carousel>
       </div>

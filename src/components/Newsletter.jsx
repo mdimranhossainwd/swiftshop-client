@@ -10,8 +10,8 @@ const Newsletter = () => {
           type="text"
           placeholder="Type Here Your Email Address Here..."
         />
-        <button className="text-white font-semibold ml-3 bg-[#128AED] py-3 px-14 rounded-full">
-          Sign Up
+        <button className="text-white font-semibold ml-3 bg-[#128AED] py-3 px-10  rounded-full">
+          Subscribe
         </button>
       </div>
     </div>
