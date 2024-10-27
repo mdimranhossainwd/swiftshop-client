@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import useAxios from "../../hooks/useAxios";
 const Register = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+  const axios = useAxios();
   const location = useLocation();
   const from = location.state || "/";
   const { signInWithGoogle, user, createUser, setUser, updateUserProfile } =
@@ -18,14 +19,12 @@ const Register = () => {
       const result = await createUser(email, password);
       await updateUserProfile(name, photo);
       setUser({ ...result?.user, photoURL: photo, displayName: name });
-      //   await axios.post("/users", {
-      //     email,
-      //     name,
-      //     photo,
-      //     role: "member",
-      //   });
-      //   const { data } = await axios.post("/jwt", result?.user?.email);
-      //   console.log(data);
+      await axios.post("/users", {
+        email,
+        name,
+        photo,
+        role: "member",
+      });
 
       navigate(from, { replace: true });
     } catch (err) {
