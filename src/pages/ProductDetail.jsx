@@ -1,33 +1,89 @@
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import { useLoaderData } from "react-router-dom";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import "../App.css"; // Ensure this import is correct
+import ProductContent from "../components/ProductContent";
+import TabContent from "../components/TabContent";
 
 const ProductDetail = () => {
   const productInfo = useLoaderData();
-  console.log(productInfo);
+  const {
+    _id,
+    name,
+    categoryId,
+    price,
+    stock,
+    description,
+    highlights,
+    specifications,
+    images,
+    brand,
+    rating,
+    warranty,
+    returnPolicy,
+  } = productInfo || {};
 
   return (
     <div className="container mx-auto">
       <div className="container mx-auto p-6 flex flex-col md:flex-row">
-        <div className="md:w-1/2 flex flex-col items-center">
+        <div className="md:w-1/2 h-[440px] flex border flex-col items-center">
           <InnerImageZoom
-            src="https://plus.unsplash.com/premium_photo-1714158925616-b2ca6115046c?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            zoomSrc="https://plus.unsplash.com/premium_photo-1728311732707-3391a4f7c09c?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src={images}
+            zoomSrc={images}
             alt="Product"
             zoomType="hover"
             zoomPreload={true}
-            className="w-full"
+            className="w-full object-cover"
             hideCloseButton={true}
           />
         </div>
-        <div className="md:w-1/2 p-4">
-          <h2 className="text-2xl font-bold mb-2">
-            WholeHearted Grain Free All Life Stages Duck
-          </h2>
-          <p className="text-red-600 text-xl font-bold mb-4">$10.99 - $42.99</p>
+        <div>
+          <ProductContent productInfo={productInfo} />
         </div>
       </div>
+      <Tabs className=" mb-10">
+        <TabList className="text-lg text-center items-center justify-center font-semibold">
+          <Tab>Descriptions</Tab>
+          <Tab>Additional Info</Tab>
+          <Tab>Add Review</Tab>
+        </TabList>
+
+        <TabPanel className="mt-6 text-md text-[#928f8f]">
+          {description} The iPad and Mac have become iconic products in the
+          global tech industry, representing Apple's commitment to innovation
+          and user-centric design. The iPad, first introduced in 2010,
+          revolutionized the tablet market by offering a versatile device that
+          fits between a smartphone and a laptop. It’s widely used for various
+          purposes, including education, design, and entertainment, thanks to
+          its powerful hardware, iOS ecosystem, and range of productivity apps
+          like Procreate, iMovie, and Microsoft Office. The introduction of the
+          Apple Pencil and Magic Keyboard has further enhanced its capabilities,
+          making it a favorite among artists and professionals who seek a
+          portable yet powerful tool. The Mac, on the other hand, has been a
+          cornerstone of Apple's product lineup since the original Macintosh was
+          launched in 1984. Known for its sleek design, robust performance, and
+          macOS software, the Mac has evolved into different models, including
+          the MacBook Air, MacBook Pro, iMac, and Mac Mini. These devices are
+          favored by creative professionals, software developers, and business
+          users for their seamless integration with other Apple products,
+          high-resolution Retina displays, and powerful M-series chips that
+          deliver unmatched speed and efficiency. The Mac's reliability and
+          cutting-edge features have made it a staple in various industries,
+          from music production to software development. Globally, both the iPad
+          and Mac enjoy a strong user base, thanks to Apple’s extensive retail
+          and online presence. They symbolize a blend of luxury and
+          productivity, appealing to customers who value premium quality and a
+          cohesive ecosystem. Apple's continuous updates to hardware and
+          software ensure that these devices remain at the forefront of
+          technology, setting benchmarks for competitors and consistently
+          driving innovation in the tech world.
+        </TabPanel>
+        <TabPanel>
+          <TabContent productInfo={productInfo} />
+        </TabPanel>
+      </Tabs>
     </div>
   );
 };

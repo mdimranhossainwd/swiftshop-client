@@ -26,7 +26,10 @@ const BlogCard = ({ blog }) => {
           <span>{date}</span> ||
           <span>{author}</span>
         </div>
-        <Link className="text-blue-500 text-[13px] underline cursor-pointer">
+        <Link
+          to={`/blogs/${_id}`}
+          className="text-blue-500 text-[13px] underline cursor-pointer"
+        >
           {" "}
           Read More
         </Link>
