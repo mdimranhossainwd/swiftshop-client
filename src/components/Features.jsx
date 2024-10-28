@@ -42,7 +42,7 @@ const Features = () => {
 
   return (
     <div className="container mx-auto">
-      <Heading />
+      <Heading heading="Features Collections" />
 
       <div className="my-6">
         <Carousel

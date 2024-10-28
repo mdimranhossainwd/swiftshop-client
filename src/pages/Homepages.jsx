@@ -1,4 +1,5 @@
 import BenefitsSection from "../components/BenefitsSection";
+import Blogs from "../components/Blogs";
 import Brand from "../components/Brand";
 import Carousel from "../components/Carousel";
 import Features from "../components/Features";
@@ -12,6 +13,7 @@ const Homepages = () => {
       <Features />
       <PromoSections />
       <Newsletter />
+      <Blogs />
       <Brand />
     </div>
   );
