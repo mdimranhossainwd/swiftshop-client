@@ -1,4 +1,5 @@
 import { Image } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 const Card = ({ product }) => {
   const {
@@ -100,9 +101,11 @@ const Card = ({ product }) => {
           src={images[1]}
         />
         <div className="flex-grow text-center px-4 py-3 flex flex-col justify-between">
-          <h3 className="text-md hover:text-[#128AED] cursor-pointer text-left text-[#766B7A] font-bold h-6 overflow-hidden whitespace-nowrap text-ellipsis">
-            {name}
-          </h3>
+          <Link to={`/product/${_id}`}>
+            <h3 className="text-md hover:text-[#128AED] cursor-pointer text-left text-[#766B7A] font-bold h-6 overflow-hidden whitespace-nowrap text-ellipsis">
+              {name}
+            </h3>
+          </Link>
           <div className="flex mt-[3px] items-center">
             {renderStars(rating)}
             <span className="pl-2 font-semibold text-[#4D3105]">

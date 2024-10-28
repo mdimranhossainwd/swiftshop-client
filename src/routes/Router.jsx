@@ -15,8 +15,10 @@ const router = createBrowserRouter([
         element: <Homepages />,
       },
       {
-        path: "/product",
+        path: "/product/:id",
         element: <ProductDetail />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/swiftshop/api/v1/features/${params.id}`),
       },
     ],
   },
