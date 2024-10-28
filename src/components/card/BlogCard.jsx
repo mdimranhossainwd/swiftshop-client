@@ -17,9 +17,11 @@ const BlogCard = ({ blog }) => {
             {tags[0]}
           </span>
         </div>
-        <h2 className="text-lg mb-2 cursor-pointer hover:text-[#128AED] font-bold overflow-hidden text-ellipsis whitespace-nowrap">
-          {title}
-        </h2>
+        <Link to={`/blogs/${_id}`}>
+          <h2 className="text-xl mb-2 hover:text-[#128AED] font-bold overflow-hidden text-ellipsis whitespace-nowrap">
+            {title}
+          </h2>
+        </Link>
         <div className="flex text-[#2F4A66] mb-4 gap-4 text-sm font-medium">
           <span>{date}</span> ||
           <span>{author}</span>
