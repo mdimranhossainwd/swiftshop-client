@@ -1,8 +1,11 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
+import useAxios from "../hooks/useAxios";
 
 const ProductContent = ({ productInfo }) => {
   const {
-    _id,
+    _id: productId,
     name,
     categoryId,
     price,
@@ -18,6 +21,8 @@ const ProductContent = ({ productInfo }) => {
   } = productInfo || {};
 
   const [quantity, setQuantity] = useState(1);
+  const axios = useAxios();
+  const { user } = useAuth();
 
   const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -27,6 +32,35 @@ const ProductContent = ({ productInfo }) => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
     }
+  };
+
+  // Add wishlists Product Functions
+  const addWishlists = async (id) => {
+    const wishlistData = {
+      ...productInfo,
+      useName: user?.displayName,
+      photoURL: user?.photoURL,
+      email: user?.email,
+      quantity: quantity,
+      status: "Pending",
+    };
+
+    try {
+      const { data } = await axios.post("/orders", wishlistData);
+      if (data.acknowledged > 0) {
+        Swal.fire({
+          title: "Added to Wishlist!",
+          text: `${name} has been added to your wishlist.`,
+          icon: "success",
+          timer: 3000, // Auto-close after 3 seconds
+          timerProgressBar: true,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+    console.log(wishlistData);
   };
 
   //   Custom Rating
@@ -157,7 +191,10 @@ const ProductContent = ({ productInfo }) => {
         </div>
         <div className="p-4 border-t border-gray-200">
           <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
-            <button className="flex items-center space-x-1 hover:text-gray-700">
+            <button
+              onClick={addWishlists}
+              className="flex items-center space-x-1 hover:text-gray-700"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
