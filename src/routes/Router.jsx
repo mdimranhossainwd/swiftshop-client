@@ -6,6 +6,7 @@ import BlogDetailsPage from "../pages/BlogDetailsPage";
 import Homepages from "../pages/Homepages";
 import ProductDetail from "../pages/ProductDetail";
 import WishlistsPage from "../pages/WishlistsPage";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <ProductDetail />,
+        element: (
+          <PrivateRouter>
+            <ProductDetail />
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/swiftshop/api/v1/features/${params.id}`),
       },
@@ -30,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/wishlists",
-        element: <WishlistsPage />,
+        element: (
+          <PrivateRouter>
+            <WishlistsPage />,
+          </PrivateRouter>
+        ),
       },
     ],
   },
