@@ -1,21 +1,8 @@
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
-import "react-multi-carousel/lib/styles.css";
-// Import Swiper React components
-// Import Swiper React components
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
-// import required modules
-
-// Import Swiper styles
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "swiper/css";
-import "swiper/css/navigation";
 import "../App.css"; // Ensure this import is correct
 import ProductContent from "../components/ProductContent";
 import TabContent from "../components/TabContent";
@@ -40,16 +27,16 @@ const ProductDetail = () => {
   } = productInfo || {};
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-12">
       <div className="container mx-auto p-6 flex flex-col md:flex-row">
-        <div className="md:w-1/2 h-[440px] flex border flex-col items-center">
+        <div className="md:w-1/2 h-[440px] space-y-4 flex flex-col items-center">
           <InnerImageZoom
             src={images}
             zoomSrc={images}
             alt="Product"
             zoomType="hover"
             zoomPreload={true}
-            className="w-full object-cover"
+            className="object-cover border"
             hideCloseButton={true}
           />
         </div>
@@ -64,7 +51,7 @@ const ProductDetail = () => {
           <Tab>Add Review</Tab>
         </TabList>
 
-        <TabPanel className="mt-6 text-md text-[#928f8f]">
+        <TabPanel className="mt-6 mx-8 md:mx-0 text-md text-[#928f8f]">
           {description} The iPad and Mac have become iconic products in the
           global tech industry, representing Apple's commitment to innovation
           and user-centric design. The iPad, first introduced in 2010,

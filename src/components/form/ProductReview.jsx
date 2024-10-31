@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const ProductReview = ({ onSubmitReview }) => {
+const ProductReview = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState(0);
@@ -14,7 +14,8 @@ const ProductReview = ({ onSubmitReview }) => {
       rating,
       review,
     };
-    onSubmitReview(newReview);
+    console.log(newReview);
+
     setName("");
     setEmail("");
     setRating(0);
@@ -22,7 +23,7 @@ const ProductReview = ({ onSubmitReview }) => {
   };
 
   return (
-    <div className="bg-white w-3/5 p-6 rounded-lg border mx-auto">
+    <div className="bg-white mx-6  md:w-3/5 p-6 rounded-lg border md:mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Submit Your Review</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
