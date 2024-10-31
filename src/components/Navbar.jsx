@@ -31,7 +31,7 @@ const HeaderMenu = () => {
       <NavLink>Menu</NavLink>
       <NavLink>Blog</NavLink>
       <NavLink>Contact</NavLink>
-      <NavLink>
+      <NavLink to="/wishlists" className="flex gap-4 items-center">
         <div className="relative inline-block">
           {/* Heart Icon */}
           <div className="bg-white rounded-full p-3 shadow-md">
@@ -54,6 +54,7 @@ const HeaderMenu = () => {
             2
           </span>
         </div>
+        <span>Wishlists</span>
       </NavLink>
       {!user && <NavLink to="/login">Account</NavLink>}
     </>

@@ -5,6 +5,7 @@ import MainLayout from "../layout/MainLayout";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import Homepages from "../pages/Homepages";
 import ProductDetail from "../pages/ProductDetail";
+import WishlistsPage from "../pages/WishlistsPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         element: <BlogDetailsPage />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/swiftshop/api/v1/blogs/${params.id}`),
+      },
+      {
+        path: "/wishlists",
+        element: <WishlistsPage />,
       },
     ],
   },
