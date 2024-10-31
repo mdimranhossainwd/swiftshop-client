@@ -27,16 +27,16 @@ const ProductDetail = () => {
   } = productInfo || {};
 
   return (
-    <div className="container mx-auto mt-12">
+    <div className="container mx-auto mt-4">
       <div className="container mx-auto p-6 flex flex-col md:flex-row">
-        <div className="md:w-1/2 h-[440px] space-y-4 flex flex-col items-center">
+        <div className="md:w-1/2  space-y-4 flex flex-col items-center">
           <InnerImageZoom
-            src={images}
+            src={images[1]}
             zoomSrc={images[1]}
             alt="Product"
             zoomType="hover"
             zoomPreload={true}
-            className="object-cover border"
+            className="object-cover"
             hideCloseButton={true}
           />
         </div>

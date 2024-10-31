@@ -73,7 +73,7 @@ const HeaderMenu = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex  gap-4" justify="center">
-        <NavbarItem className="flex items-center gap-8 ">
+        <NavbarItem className="flex items-center gap-6 ">
           {navMenuItems}
         </NavbarItem>
       </NavbarContent>

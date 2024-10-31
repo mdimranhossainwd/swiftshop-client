@@ -1,7 +1,7 @@
 const BenefitsSection = () => {
   return (
     <div className="container mx-auto my-16">
-      <div className="flex flex-col md:flex-row justify-between items-center bg-white border border-gray-200 p-6">
+      <div className="flex flex-col md:flex-row space-y-6 lg:space-y-0 justify-between items-center bg-white border border-gray-200 p-6">
         <div className="flex items-center space-x-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
