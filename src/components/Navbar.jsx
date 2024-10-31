@@ -102,7 +102,7 @@ const HeaderMenu = () => {
                 <NavLink className="flex items-center gap-3">Dashboard</NavLink>
               </DropdownItem>
               <DropdownItem>
-                <NavLink className="flex items-center gap-3">
+                <NavLink to="/mycart" className="flex items-center gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"

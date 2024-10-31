@@ -4,6 +4,7 @@ import Register from "../components/authentications/Register";
 import MainLayout from "../layout/MainLayout";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import Homepages from "../pages/Homepages";
+import MyCartPages from "../pages/MyCartPages";
 import ProductDetail from "../pages/ProductDetail";
 import WishlistsPage from "../pages/WishlistsPage";
 import PrivateRouter from "./PrivateRouter";
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <WishlistsPage />,
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/mycart",
+        element: (
+          <PrivateRouter>
+            <MyCartPages />
           </PrivateRouter>
         ),
       },
