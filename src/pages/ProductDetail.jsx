@@ -1,11 +1,25 @@
 import InnerImageZoom from "react-inner-image-zoom";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
+import "react-multi-carousel/lib/styles.css";
+// Import Swiper React components
+// Import Swiper React components
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+
+// Import Swiper styles
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import "swiper/css";
+import "swiper/css/navigation";
 import "../App.css"; // Ensure this import is correct
 import ProductContent from "../components/ProductContent";
 import TabContent from "../components/TabContent";
+import ProductReview from "../components/form/ProductReview";
 
 const ProductDetail = () => {
   const productInfo = useLoaderData();
@@ -82,6 +96,9 @@ const ProductDetail = () => {
         </TabPanel>
         <TabPanel>
           <TabContent productInfo={productInfo} />
+        </TabPanel>
+        <TabPanel>
+          <ProductReview />
         </TabPanel>
       </Tabs>
     </div>

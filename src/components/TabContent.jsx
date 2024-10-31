@@ -97,7 +97,7 @@ const TabContent = ({ productInfo }) => {
         <div className="flex bg-[#F1F5F6] py-3 px-6">
           <span className="w-36 font-semibold text-left">Connectivity</span>
           <span className="text-[#7A7A7A] font-semibold">
-            {specifications.connectivity.join(",") ||
+            {specifications.connectivity?.join(",") ||
               "12MP Ultra Wide front camera with Center Stage and Smart HDR 3"}
           </span>
         </div>
