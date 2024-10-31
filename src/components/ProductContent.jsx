@@ -63,6 +63,34 @@ const ProductContent = ({ productInfo }) => {
     console.log(wishlistData);
   };
 
+  // Add To Card Product Functions
+  const addProductCart = async (id) => {
+    const cartProductData = {
+      ...productInfo,
+      useName: user?.displayName,
+      photoURL: user?.photoURL,
+      email: user?.email,
+      quantity: quantity,
+    };
+
+    try {
+      const { data } = await axios.post("/carts", cartProductData);
+      if (data.acknowledged > 0) {
+        Swal.fire({
+          title: "Added to Cart!",
+          text: `${name} has been added to your Cart.`,
+          icon: "success",
+          timer: 3000, // Auto-close after 3 seconds
+          timerProgressBar: true,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+    console.log(addProductCart);
+  };
+
   //   Custom Rating
   const renderStars = (rating) => {
     const stars = [];
@@ -185,7 +213,10 @@ const ProductContent = ({ productInfo }) => {
           </div>
 
           {/* Add to Cart Button */}
-          <button className="uppercase font-oswald bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-blue-700 text-white px-12 py-3 rounded-full">
+          <button
+            onClick={addProductCart}
+            className="uppercase font-oswald bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-blue-700 text-white px-12 py-3 rounded-full"
+          >
             ADD TO CART
           </button>
         </div>
