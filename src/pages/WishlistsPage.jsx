@@ -1,21 +1,25 @@
-import { useQuery } from "@tanstack/react-query";
+import Card from "../components/card/Card";
+import Heading from "../components/shared/Heading";
 import useAxios from "../hooks/useAxios";
+import useProduct from "../hooks/useProduct";
 
 const WishlistsPage = () => {
   const axios = useAxios();
 
-  const getData = async () => {
-    const { data } = await axios.get("/orders");
-    return data;
-  };
+  const [product, refetch] = useProduct();
+  console.log(product);
 
-  const { data: getWishlist, refetch } = useQuery({
-    queryKey: ["getWishlist"],
-    queryFn: getData,
-  });
-  console.log(getWishlist);
+  return (
+    <div className="container mx-auto my-12">
+      <Heading heading="Your Favourite Product" />
 
-  return <div></div>;
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-1">
+        {product?.map((item) => (
+          <Card key={item?._id} product={item} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default WishlistsPage;
