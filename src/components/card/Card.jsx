@@ -1,5 +1,9 @@
 import { Image } from "@nextui-org/react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import useAxios from "../../hooks/useAxios";
 
 const Card = ({ product }) => {
   const {
@@ -17,6 +21,38 @@ const Card = ({ product }) => {
     warranty,
     returnPolicy,
   } = product || {};
+
+  const axios = useAxios();
+  const { user } = useAuth();
+  const [quantity, setQuantity] = useState(1);
+
+  // Add To Card Product Functions
+  const addProductCart = async (id) => {
+    const cartProductData = {
+      ...product,
+      useName: user?.displayName,
+      photoURL: user?.photoURL,
+      email: user?.email,
+      quantity: quantity,
+    };
+
+    try {
+      const { data } = await axios.post("/carts", cartProductData);
+      if (data.acknowledged > 0) {
+        Swal.fire({
+          title: "Added to Cart!",
+          text: `${name} has been added to your Cart.`,
+          icon: "success",
+          timer: 3000, // Auto-close after 3 seconds
+          timerProgressBar: true,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+
+    console.log(addProductCart);
+  };
 
   // Function to render stars based on rating
   const renderStars = (rating) => {
@@ -115,7 +151,10 @@ const Card = ({ product }) => {
           <span className="font-medium text-left font-oswald mt-[5px]">
             ${price}
           </span>
-          <button className="bg-[#128AED] hover:bg-black transition-opacity font-semibold mt-4 mb-3 text-white py-2 px-3 rounded-full">
+          <button
+            onClick={addProductCart}
+            className="bg-[#128AED] hover:bg-black transition-opacity font-semibold mt-4 mb-3 text-white py-2 px-3 rounded-full"
+          >
             Add To Cart
           </button>
         </div>
