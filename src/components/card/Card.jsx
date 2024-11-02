@@ -7,7 +7,7 @@ import useAxios from "../../hooks/useAxios";
 
 const Card = ({ product }) => {
   const {
-    _id,
+    _id: productId,
     name,
     categoryId,
     price,
@@ -27,31 +27,25 @@ const Card = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
 
   // Add To Card Product Functions
-  const addProductCart = async (id) => {
+  const addProductCart = async () => {
     const cartProductData = {
       ...product,
       useName: user?.displayName,
       photoURL: user?.photoURL,
       email: user?.email,
       quantity: quantity,
+      status: "Pending",
     };
-
-    try {
-      const { data } = await axios.post("/carts", cartProductData);
-      if (data.acknowledged > 0) {
-        Swal.fire({
-          title: "Added to Cart!",
-          text: `${name} has been added to your Cart.`,
-          icon: "success",
-          timer: 3000, // Auto-close after 3 seconds
-          timerProgressBar: true,
-        });
-      }
-    } catch (err) {
-      console.log(err);
+    const { data } = await axios.post("/carts", cartProductData);
+    if (data.acknowledged > 0) {
+      Swal.fire({
+        title: "Added to Cart!",
+        text: `${name} has been added to your Cart.`,
+        icon: "success",
+        timer: 3000, // Auto-close after 3 seconds
+        timerProgressBar: true,
+      });
     }
-
-    console.log(addProductCart);
   };
 
   // Function to render stars based on rating
@@ -137,7 +131,7 @@ const Card = ({ product }) => {
           src={images[1]}
         />
         <div className="flex-grow text-center px-4 py-3 flex flex-col justify-between">
-          <Link to={`/product/${_id}`}>
+          <Link to={`/product/${productId}`}>
             <h3 className="text-md hover:text-[#128AED] cursor-pointer text-left text-[#766B7A] font-bold h-6 overflow-hidden whitespace-nowrap text-ellipsis">
               {name}
             </h3>

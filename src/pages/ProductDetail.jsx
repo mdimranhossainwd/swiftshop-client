@@ -3,7 +3,7 @@ import "react-inner-image-zoom/lib/InnerImageZoom/styles.min.css";
 import { useLoaderData } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import "../App.css"; // Ensure this import is correct
+import "../App.css";
 import ProductContent from "../components/ProductContent";
 import TabContent from "../components/TabContent";
 import ProductReview from "../components/form/ProductReview";

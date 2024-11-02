@@ -1,11 +1,8 @@
 import Card from "../components/card/Card";
 import Heading from "../components/shared/Heading";
-import useAxios from "../hooks/useAxios";
 import useProduct from "../hooks/useProduct";
 
 const WishlistsPage = () => {
-  const axios = useAxios();
-
   const [product, refetch] = useProduct();
   console.log(product);
 

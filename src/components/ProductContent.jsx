@@ -1,11 +1,12 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 
 const ProductContent = ({ productInfo }) => {
   const {
-    _id: productId,
+    _id,
     name,
     categoryId,
     price,
@@ -34,61 +35,49 @@ const ProductContent = ({ productInfo }) => {
     }
   };
 
-  // Add wishlists Product Functions
-  const addWishlists = async (id) => {
-    const wishlistData = {
+  const productAllData = {
+    productId: _id,
+    name: name,
+    categoryId: categoryId,
+    price: price,
+    stock: stock,
+    description: description,
+    highlights: highlights,
+    specifications: specifications,
+    images: images,
+    brand: brand,
+    rating: rating,
+    warranty: warranty,
+    returnPolicy: returnPolicy,
+    userName: user?.displayName,
+    photoURL: user?.photoURL,
+    email: user?.email,
+  };
+  const addWishlists = async () => {
+    const { data } = await axios.post("/orders", productAllData);
+    toast.success("Add to Wishlists");
+  };
+
+  // Add To Card Product Functions
+  const addProductCart = async () => {
+    const cartProductData = {
       ...productInfo,
-      useName: user?.displayName,
+      userName: user?.displayName,
       photoURL: user?.photoURL,
       email: user?.email,
       quantity: quantity,
       status: "Pending",
     };
-
-    try {
-      const { data } = await axios.post("/orders", wishlistData);
-      if (data.acknowledged > 0) {
-        Swal.fire({
-          title: "Added to Wishlist!",
-          text: `${name} has been added to your wishlist.`,
-          icon: "success",
-          timer: 3000, // Auto-close after 3 seconds
-          timerProgressBar: true,
-        });
-      }
-    } catch (err) {
-      console.log(err);
+    const { data } = await axios.post("/carts", cartProductData);
+    if (data.acknowledged > 0) {
+      Swal.fire({
+        title: "Added to Cart!",
+        text: `${name} has been added to your Cart.`,
+        icon: "success",
+        timer: 3000, // Auto-close after 3 seconds
+        timerProgressBar: true,
+      });
     }
-
-    console.log(wishlistData);
-  };
-
-  // Add To Card Product Functions
-  const addProductCart = async (id) => {
-    const cartProductData = {
-      ...productInfo,
-      useName: user?.displayName,
-      photoURL: user?.photoURL,
-      email: user?.email,
-      quantity: quantity,
-    };
-
-    try {
-      const { data } = await axios.post("/carts", cartProductData);
-      if (data.acknowledged > 0) {
-        Swal.fire({
-          title: "Added to Cart!",
-          text: `${name} has been added to your Cart.`,
-          icon: "success",
-          timer: 3000, // Auto-close after 3 seconds
-          timerProgressBar: true,
-        });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-
-    console.log(addProductCart);
   };
 
   //   Custom Rating
@@ -223,7 +212,7 @@ const ProductContent = ({ productInfo }) => {
         <div className="p-4 border-t border-gray-200">
           <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
             <button
-              onClick={addWishlists}
+              onClick={() => addWishlists(_id)}
               className="flex items-center space-x-1 hover:text-gray-700"
             >
               <svg

@@ -1,17 +1,21 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
 import useCart from "../hooks/useCart";
 
 const MyCartPages = () => {
-  const [cart] = useCart();
-  const [quantity, setQuantity] = useState();
+  const [cart, refetch] = useCart();
+  const axios = useAxios();
 
-  // Increase quantity
-  const increaseQuantity = () => setQuantity((quantity) => quantity + 1);
+  const totalCost = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
-  // Decrease quantity but not below 1
-  const decreaseQuantity = () =>
-    setQuantity((quantity) => (quantity > 1 ? quantity - 1 : 1));
+  const handleDelete = async (id) => {
+    const { data } = await axios.delete(`/carts/${id}`);
+    toast.success("Deleted This Product");
+    refetch();
+  };
 
   return (
     <div className="container mx-auto">
@@ -38,7 +42,7 @@ const MyCartPages = () => {
                   <div>
                     <td className="flex items-center gap-4 p-8">
                       <img
-                        src={item?.images[0]}
+                        src={item?.images}
                         className="w-24 h-20 border"
                         alt=""
                       />
@@ -54,17 +58,11 @@ const MyCartPages = () => {
                   </div>
 
                   <td className="font-medium">
-                    <button
-                      onClick={decreaseQuantity}
-                      className="px-2 py-1 mx-3 text-lg rounded-md"
-                    >
+                    <button className="px-2 py-1 mx-3 text-lg rounded-md">
                       -
                     </button>
                     {item?.quantity}
-                    <button
-                      onClick={increaseQuantity}
-                      className="px-2 py-1 mx-3 text-lg rounded-md"
-                    >
+                    <button className="px-2 py-1 mx-3 text-lg rounded-md">
                       +
                     </button>
                   </td>
@@ -76,26 +74,24 @@ const MyCartPages = () => {
                     }
                   </td>
                   <th>
-                    <NavLink to={`/dashboard/update/${item?._id}`}>
-                      <button>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="lucide mt-2 lucide-trash"
-                        >
-                          <path d="M3 6h18" />
-                          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                        </svg>
-                      </button>
-                    </NavLink>
+                    <button onClick={() => handleDelete(item?._id)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide mt-2 lucide-trash"
+                      >
+                        <path d="M3 6h18" />
+                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                      </svg>
+                    </button>
                   </th>
                 </tr>
               ))}
@@ -122,7 +118,7 @@ const MyCartPages = () => {
           <h3 className="text-lg font-semibold mb-4">Cart Totals</h3>
           <div className="space-y-4">
             <div className="flex justify-between text-lg font-medium">
-              <p>Subtotal:</p>
+              <p>Subtotal: {totalCost}</p>
               {/* <span>${(product.price * quantity).toFixed(2)}</span> */}
             </div>
             <label htmlFor="country" className="block text-gray-700">
