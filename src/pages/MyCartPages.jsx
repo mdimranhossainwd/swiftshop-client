@@ -6,16 +6,16 @@ const MyCartPages = () => {
   const [cart, refetch] = useCart();
   const axios = useAxios();
 
-  const totalCost = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
-
   const handleDelete = async (id) => {
     const { data } = await axios.delete(`/carts/${id}`);
-    toast.success("Deleted This Product");
+    toast.success("Item deleted successfully");
     refetch();
   };
+
+  // const totalCost = cart.reduce(
+  //   (acc, item) => acc + item.price * item.quantity,
+  //   0
+  // );
 
   return (
     <div className="container mx-auto">
@@ -39,24 +39,22 @@ const MyCartPages = () => {
             <tbody className="w-full py-4 text-center">
               {cart?.map((item) => (
                 <tr className="py-4 border-b" key={item._id}>
-                  <div>
-                    <td className="flex items-center gap-4 p-8">
-                      <img
-                        src={item?.images}
-                        className="w-24 h-20 border"
-                        alt=""
-                      />
-                      <div className="">
-                        <h4 className="text-md bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 bg-clip-text text-transparent font-medium">
-                          {item?.name}
-                        </h4>
-                        <span className="p-4 font-semibold">
-                          ${(item?.price * item?.quantity).toFixed(2)}
-                        </span>
-                      </div>
-                    </td>
-                  </div>
+                  {/* Product Name and Image */}
+                  <td className="flex items-center gap-4 p-8">
+                    <img
+                      src={item?.images}
+                      className="w-24 h-20 border"
+                      alt=""
+                    />
+                    <div>
+                      <h4 className="text-md bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 bg-clip-text text-transparent font-medium">
+                        {item?.name}
+                      </h4>
+                      <span className="p-4 font-semibold">${item?.price}</span>
+                    </div>
+                  </td>
 
+                  {/* Quantity with Buttons */}
                   <td className="font-medium">
                     <button className="px-2 py-1 mx-3 text-lg rounded-md">
                       -
@@ -66,14 +64,16 @@ const MyCartPages = () => {
                       +
                     </button>
                   </td>
+
+                  {/* Subtotal */}
                   <td className="font-medium">
-                    {
-                      <span className="p-4 font-semibold">
-                        ${(item?.price * item?.quantity).toFixed(2)}
-                      </span>
-                    }
+                    <span className="p-4 font-semibold">
+                      ${(item?.price * item?.quantity).toFixed(2)}
+                    </span>
                   </td>
-                  <th>
+
+                  {/* Delete Button */}
+                  <td>
                     <button onClick={() => handleDelete(item?._id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const MyCartPages = () => {
                         <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
                       </svg>
                     </button>
-                  </th>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -109,16 +109,18 @@ const MyCartPages = () => {
 
         {/* Cart Summary Section */}
         <div className="flex-1 max-w-sm bg-white rounded-lg shadow-md p-6">
-          <div className="bg-red-100 text-center py-4 rounded-md mb-6">
+          <div className="bg-blue-100 text-center py-4 rounded-md mb-6">
             <p>
               Congratulations! You've got{" "}
-              <span className="font-semibold text-red-600">Free Shipping!</span>
+              <span className="font-semibold text-blue-600">
+                Free Shipping!
+              </span>
             </p>
           </div>
           <h3 className="text-lg font-semibold mb-4">Cart Totals</h3>
           <div className="space-y-4">
             <div className="flex justify-between text-lg font-medium">
-              <p>Subtotal: {totalCost}</p>
+              {/* <p>Subtotal: {totalCost.toFixed(2)}</p> */}
               {/* <span>${(product.price * quantity).toFixed(2)}</span> */}
             </div>
             <label htmlFor="country" className="block text-gray-700">

@@ -31,8 +31,8 @@ const ProductDetail = () => {
       <div className="container mx-auto p-6 flex flex-col md:flex-row">
         <div className="md:w-1/2  space-y-4 flex flex-col items-center">
           <InnerImageZoom
-            src={images[1]}
-            zoomSrc={images[1]}
+            src={images}
+            zoomSrc={images}
             alt="Product"
             zoomType="hover"
             zoomPreload={true}

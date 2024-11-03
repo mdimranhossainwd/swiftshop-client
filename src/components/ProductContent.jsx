@@ -6,7 +6,7 @@ import useAxios from "../hooks/useAxios";
 
 const ProductContent = ({ productInfo }) => {
   const {
-    _id,
+    _id: specificId,
     name,
     categoryId,
     price,
@@ -36,7 +36,7 @@ const ProductContent = ({ productInfo }) => {
   };
 
   const productAllData = {
-    productId: _id,
+    productId: specificId,
     name: name,
     categoryId: categoryId,
     price: price,
@@ -53,6 +53,28 @@ const ProductContent = ({ productInfo }) => {
     photoURL: user?.photoURL,
     email: user?.email,
   };
+
+  const cartAllData = {
+    productId: specificId,
+    name: name,
+    categoryId: categoryId,
+    price: price,
+    stock: stock,
+    description: description,
+    highlights: highlights,
+    specifications: specifications,
+    images: images,
+    brand: brand,
+    rating: rating,
+    warranty: warranty,
+    returnPolicy: returnPolicy,
+    userName: user?.displayName,
+    photoURL: user?.photoURL,
+    quantity: quantity,
+    email: user?.email,
+    status: "Pending",
+  };
+
   const addWishlists = async () => {
     const { data } = await axios.post("/orders", productAllData);
     toast.success("Add to Wishlists");
@@ -60,15 +82,7 @@ const ProductContent = ({ productInfo }) => {
 
   // Add To Card Product Functions
   const addProductCart = async () => {
-    const cartProductData = {
-      ...productInfo,
-      userName: user?.displayName,
-      photoURL: user?.photoURL,
-      email: user?.email,
-      quantity: quantity,
-      status: "Pending",
-    };
-    const { data } = await axios.post("/carts", cartProductData);
+    const { data } = await axios.post("/carts", cartAllData);
     if (data.acknowledged > 0) {
       Swal.fire({
         title: "Added to Cart!",
@@ -212,7 +226,7 @@ const ProductContent = ({ productInfo }) => {
         <div className="p-4 border-t border-gray-200">
           <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
             <button
-              onClick={() => addWishlists(_id)}
+              onClick={() => addWishlists(specificId)}
               className="flex items-center space-x-1 hover:text-gray-700"
             >
               <svg

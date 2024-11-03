@@ -146,7 +146,7 @@ const Card = ({ product }) => {
             ${price}
           </span>
           <button
-            onClick={addProductCart}
+            // onClick={addProductCart}
             className="bg-[#128AED] hover:bg-black transition-opacity font-semibold mt-4 mb-3 text-white py-2 px-3 rounded-full"
           >
             Add To Cart
