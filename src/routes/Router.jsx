@@ -3,6 +3,7 @@ import Login from "../components/authentications/Login";
 import Register from "../components/authentications/Register";
 import MainLayout from "../layout/MainLayout";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
+import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import ProductDetail from "../pages/ProductDetail";
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             <MyCartPages />
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/contact",
+        element: <ContactPages />,
       },
     ],
   },

@@ -30,7 +30,7 @@ const HeaderMenu = () => {
       <NavLink>Shop</NavLink>
       <NavLink>Menu</NavLink>
       <NavLink>Blog</NavLink>
-      <NavLink>Contact</NavLink>
+      <NavLink to="/contact">Contact</NavLink>
       <NavLink to="/wishlists" className="flex gap-4 items-center">
         <div className="relative inline-block">
           {/* Heart Icon */}
