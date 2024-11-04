@@ -48,6 +48,15 @@ const Card = ({ product }) => {
   };
   // Add To Card Product Functions
   const addProductCart = async () => {
+    if (!user) {
+      Swal.fire({
+        title: "Please Login",
+        text: "You need to log in to add items to your cart.",
+        icon: "warning",
+        confirmButtonText: "Login",
+      });
+      return;
+    }
     const { data } = await axios.post("/carts", cartAllData);
     if (data.acknowledged > 0) {
       Swal.fire({
