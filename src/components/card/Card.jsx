@@ -7,7 +7,7 @@ import useAxios from "../../hooks/useAxios";
 
 const Card = ({ product }) => {
   const {
-    _id: productId,
+    _id: specificId,
     name,
     categoryId,
     price,
@@ -26,17 +26,29 @@ const Card = ({ product }) => {
   const { user } = useAuth();
   const [quantity, setQuantity] = useState(1);
 
+  const cartAllData = {
+    productId: specificId,
+    name: name,
+    categoryId: categoryId,
+    price: price,
+    stock: stock,
+    description: description,
+    highlights: highlights,
+    specifications: specifications,
+    images: images,
+    brand: brand,
+    rating: rating,
+    warranty: warranty,
+    returnPolicy: returnPolicy,
+    userName: user?.displayName,
+    photoURL: user?.photoURL,
+    quantity: quantity,
+    email: user?.email,
+    status: "Pending",
+  };
   // Add To Card Product Functions
   const addProductCart = async () => {
-    const cartProductData = {
-      ...product,
-      useName: user?.displayName,
-      photoURL: user?.photoURL,
-      email: user?.email,
-      quantity: quantity,
-      status: "Pending",
-    };
-    const { data } = await axios.post("/carts", cartProductData);
+    const { data } = await axios.post("/carts", cartAllData);
     if (data.acknowledged > 0) {
       Swal.fire({
         title: "Added to Cart!",
@@ -131,7 +143,7 @@ const Card = ({ product }) => {
           src={images[1]}
         />
         <div className="flex-grow text-center px-4 py-3 flex flex-col justify-between">
-          <Link to={`/product/${productId}`}>
+          <Link to={`/product/${specificId}`}>
             <h3 className="text-md hover:text-[#128AED] cursor-pointer text-left text-[#766B7A] font-bold h-6 overflow-hidden whitespace-nowrap text-ellipsis">
               {name}
             </h3>
@@ -146,7 +158,7 @@ const Card = ({ product }) => {
             ${price}
           </span>
           <button
-            // onClick={addProductCart}
+            onClick={addProductCart}
             className="bg-[#128AED] hover:bg-black transition-opacity font-semibold mt-4 mb-3 text-white py-2 px-3 rounded-full"
           >
             Add To Cart
