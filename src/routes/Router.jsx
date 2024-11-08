@@ -9,6 +9,7 @@ import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import ProductDetail from "../pages/ProductDetail";
 import WishlistsPage from "../pages/WishlistsPage";
+import Profile from "../shared/Profile";
 import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
   },
   {
     path: "/login",

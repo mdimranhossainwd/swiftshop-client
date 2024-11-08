@@ -2,12 +2,14 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAxios from "../../hooks/useAxios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signInWithGoogle, signIn } = useAuth();
+  const { signInWithGoogle, signIn, user } = useAuth();
   const location = useLocation();
   const { register, handleSubmit } = useForm();
+  const axios = useAxios();
   const from = location.state || "/";
   // LOGIN WITH FUNCTIONALITY
   const handleLogin = async (data) => {
@@ -27,6 +29,15 @@ const Login = () => {
     try {
       const result = await signInWithGoogle();
       console.log(result);
+
+      // const { data } = await axios.post("/users", {
+      //   email: result?.user?.email,
+      //   name: result?.user?.displayName,
+      //   photo: result?.user?.photoURL,
+      //   role: "customer",
+      // });
+      navigate(from, { replace: true });
+      toast.success("Google login successfully.");
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -43,18 +54,18 @@ const Login = () => {
             Sign in to access your dashboard, settings, and projects.
           </p>
 
-          <button
+          {/* <button
             onClick={handleGoogleSignUp}
             className="w-full flex items-center justify-center bg-white border border-gray-300 py-3 px-4 text-black font-semibold rounded-sm hover:bg-gradient-to-r hover:from-blue-300 hover:via-blue-400 hover:to-blue-700 hover:text-white mb-4 gap-3"
-          >
-            {/* <FaGoogle /> */}
-            <img
+          > */}
+          {/* <FaGoogle /> */}
+          {/* <img
               className="w-5 h-5"
               src="https://i.ibb.co.com/xfm5X7r/Google-G-logo-svg-removebg-preview.png"
               alt=""
             />
             <span>Sign In with Google</span>
-          </button>
+          </button> */}
 
           <div className="relative text-gray-400 mb-6">
             <span className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 bg-white px-2 text-sm">
