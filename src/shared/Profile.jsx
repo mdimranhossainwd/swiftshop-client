@@ -8,7 +8,7 @@ const Profile = () => {
       {/* <Helmet>
         <title>DevSpotLight || My-Profile</title>
       </Helmet> */}
-      <div className="bg-white shadow-md rounded-lg max-w-4xl w-full">
+      <div className="bg-white border rounded-lg max-w-4xl w-full">
         {/* Header */}
         <div
           className="relative h-40 bg-cover bg-center rounded-t-lg"
@@ -43,11 +43,8 @@ const Profile = () => {
               <p className="text-gray-500">{user?.email}</p>
             </div>
             <div>
-              <p className="text-gray-700 font-semibold">Subscription Type</p>
-
-              <button className="bg-gradient-to-r font-semibold from-[#7ed56f] to-[#28b485] my-4 text-white px-6 py-3 rounded-md transition duration-300">
-                Subscribe for
-              </button>
+              <p className="text-gray-700 font-semibold">Role Type</p>
+              <p>{user?.role}</p>
             </div>
             <div>
               <p className="text-gray-700 font-semibold">Time Zone</p>

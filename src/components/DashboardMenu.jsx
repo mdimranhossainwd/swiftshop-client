@@ -8,53 +8,38 @@ const DashboardMenu = () => {
     <>
       <>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : ""
+          }
           to="profile"
         >
           My Profile
         </NavLink>
 
         <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="add-product"
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : ""
+          }
+          to="order-history"
         >
-          Add Product
+          Order History
         </NavLink>
 
         <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="my-product"
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : ""
+          }
+          to="support"
         >
-          My Products
-        </NavLink>
-      </>
-      <>
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="review-queue"
-        >
-          Review Queue
-        </NavLink>
-
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="reported"
-        >
-          Reported Contents
-        </NavLink>
-      </>
-      <>
-        <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="payment"
-        >
-          Payment History
+          Support
         </NavLink>
         <NavLink
-          className={({ isActive }) => (isActive ? "text-[#28b485]" : "")}
-          to="manage-user"
+          className={({ isActive }) =>
+            isActive ? "text-blue-500 font-semibold" : ""
+          }
+          to="invoices"
         >
-          Manage User's
+          Invoices
         </NavLink>
       </>
     </>
