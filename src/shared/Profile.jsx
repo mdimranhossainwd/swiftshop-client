@@ -43,8 +43,8 @@ const Profile = () => {
               <p className="text-gray-500">{user?.email}</p>
             </div>
             <div>
-              <p className="text-gray-700 font-semibold">Role Type</p>
-              <p>{user?.role}</p>
+              <p className="text-gray-700 font-semibold">UID</p>
+              <p>{user?.uid}</p>
             </div>
             <div>
               <p className="text-gray-700 font-semibold">Time Zone</p>
