@@ -1,51 +1,19 @@
-import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useRole from "../hooks/useRole";
+import AdminMenu from "./menu/AdminMenu";
+import CustomerMenu from "./menu/CustomerMenu";
+import DeliveryMenu from "./menu/DeliveryMenu";
 
 const DashboardMenu = () => {
   const { user } = useAuth();
-  const [role] = useRole()
+  const [role] = useRole();
   console.log(role);
-  
 
   const menu = (
     <>
-      <>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-blue-500 font-semibold" : ""
-          }
-          to="profile"
-        >
-          My Profile
-        </NavLink>
-
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-blue-500 font-semibold" : ""
-          }
-          to="order-history"
-        >
-          Order History
-        </NavLink>
-
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-blue-500 font-semibold" : ""
-          }
-          to="support"
-        >
-          Support
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-blue-500 font-semibold" : ""
-          }
-          to="invoices"
-        >
-          Invoices
-        </NavLink>
-      </>
+      {role === "customer" && <CustomerMenu />}
+      {role === "delivery" && <DeliveryMenu />}
+      {role === "admin" && <AdminMenu />}
     </>
   );
 
