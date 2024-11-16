@@ -12,7 +12,7 @@ const CustomerMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="add-product"
+        to="cart"
       >
         My Orders
       </NavLink>

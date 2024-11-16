@@ -45,14 +45,14 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
-      {
-        path: "/mycart",
-        element: (
-          <PrivateRouter>
-            <MyCartPages />
-          </PrivateRouter>
-        ),
-      },
+      // {
+      //   path: "/mycart",
+      //   element: (
+      //     <PrivateRouter>
+      //       <MyCartPages />
+      //     </PrivateRouter>
+      //   ),
+      // },
       {
         path: "/contact",
         element: <ContactPages />,
@@ -66,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "cart",
+        element: <MyCartPages />,
       },
     ],
   },

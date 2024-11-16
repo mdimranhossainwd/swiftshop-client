@@ -99,7 +99,9 @@ const HeaderMenu = () => {
 
               <DropdownItem key="settings">{user?.displayName}</DropdownItem>
               <DropdownItem>
-                <NavLink className="flex items-center gap-3">Dashboard</NavLink>
+                <NavLink to="/dashboard" className="flex items-center gap-3">
+                  Dashboard
+                </NavLink>
               </DropdownItem>
 
               <DropdownItem onClick={handleLogOut} key="logout" color="danger">

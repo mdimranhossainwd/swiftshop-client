@@ -63,7 +63,7 @@ const MyCartPages = () => {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col lg:flex-row gap-8 p-4">
+        <div className="flex flex-col lg:flex-row gap-8 p-3">
           {/* Product List Section */}
           <div className="flex-1 bg-white rounded-lg p-6">
             <table className="table w-full">
@@ -138,7 +138,7 @@ const MyCartPages = () => {
           </div>
 
           {/* Cart Summary Section */}
-          <div className="flex-1 lg:max-w-sm bg-white rounded-lg border p-6">
+          <div className="flex-1 lg:max-w-sm bg-white rounded-lg border p-6 mr-6">
             <div className="bg-blue-100 text-center py-4 rounded-md mb-6">
               <p>
                 Congratulations! You've got{" "}
