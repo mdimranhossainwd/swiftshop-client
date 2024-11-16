@@ -67,12 +67,12 @@ const Login = () => {
             <span>Sign In with Google</span>
           </button> */}
 
-          <div className="relative text-gray-400 mb-6">
+          {/* <div className="relative text-gray-400 mb-6">
             <span className="absolute inset-x-0 top-1/2 transform -translate-y-1/2 bg-white px-2 text-sm">
               or sign in with email
             </span>
             <div className="border-t border-gray-300"></div>
-          </div>
+          </div> */}
 
           <form onSubmit={handleSubmit(handleLogin)}>
             <div className="mb-4 text-left">

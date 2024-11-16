@@ -11,6 +11,7 @@ const Register = () => {
   const from = location.state || "/";
   const { signInWithGoogle, user, createUser, setUser, updateUserProfile } =
     useAuth();
+
   // CREATE USER FUNCTIONS
   const handleSignUp = async (data) => {
     const { email, name, password, photo } = data;
@@ -42,7 +43,7 @@ const Register = () => {
         email: result?.user?.email,
         name: result?.user?.displayName,
         photo: result?.user?.photoURL,
-        role: "member",
+        role: "customer",
       });
       navigate(from, { replace: true });
       toast.success("Google login successfully.");
