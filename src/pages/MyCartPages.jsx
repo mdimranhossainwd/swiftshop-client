@@ -1,11 +1,14 @@
+import { useDisclosure } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import useCart from "../hooks/useCart";
+import Modals from "../shared/Modal";
 
 const MyCartPages = () => {
   const [cart, refetch] = useCart();
   const axios = useAxios();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [cartItems, setCartItems] = useState(cart);
 
   // Sync local cart items with the fetched cart data
@@ -166,6 +169,7 @@ const MyCartPages = () => {
                 </button>
               </div>
             </div>
+            <Modals isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
           </div>
         </div>
       )}
