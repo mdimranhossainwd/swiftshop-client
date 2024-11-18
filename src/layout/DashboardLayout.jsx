@@ -5,7 +5,7 @@ const DashboardLayout = () => {
   return (
     <div>
       <div className="lg:flex">
-        <div className="min-h-full bg-[#2C2C2C]">
+        <div className="min-h-full bg-[#3f3f3f]">
           <DashboardMenu />
         </div>
         <div className="md:flex-1">

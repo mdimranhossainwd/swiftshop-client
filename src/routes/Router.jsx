@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/authentications/Login";
 import Register from "../components/authentications/Register";
+import AddProductForm from "../components/form/AddProductForm";
 import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
 import AllUsersPages from "../pages/AllUsersPages";
@@ -72,9 +73,15 @@ const router = createBrowserRouter([
         path: "cart",
         element: <MyCartPages />,
       },
+
+      // Admin Routes Below
       {
         path: "all-users",
         element: <AllUsersPages />,
+      },
+      {
+        path: "add-product",
+        element: <AddProductForm />,
       },
     ],
   },
