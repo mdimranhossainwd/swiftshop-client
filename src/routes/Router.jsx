@@ -3,6 +3,7 @@ import Login from "../components/authentications/Login";
 import Register from "../components/authentications/Register";
 import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
+import AllUsersPages from "../pages/AllUsersPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <MyCartPages />,
+      },
+      {
+        path: "all-users",
+        element: <AllUsersPages />,
       },
     ],
   },

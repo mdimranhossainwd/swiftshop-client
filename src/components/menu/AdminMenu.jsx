@@ -12,7 +12,7 @@ const AdminMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="add-product"
+        to="all-users"
       >
         Manage User's
       </NavLink>
