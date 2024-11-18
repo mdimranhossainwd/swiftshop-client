@@ -168,7 +168,7 @@ const AddProductForm = () => {
         {/* Submit Button */}
         <button
           type="button"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          className="w-full bg-gradient-to-r from-blue-700 via-blue-500 to-blue-400 hover:bg-gradient-to-r hover:from-blue-500 hover:via-blue-400 hover:to-blue-700 text-white py-3 font-semibold rounded-md text-lg"
         >
           Add Product
         </button>
