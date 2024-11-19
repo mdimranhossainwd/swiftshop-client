@@ -1,9 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-// const stripePromise = loadStripe(
-//   import.meta.env.VITE_SWIFTSHOP_STRIPE_PK_TEST_KEY
-// );
 const Modal = ({ isOpen, setIsOpen, title, children }) => {
   function closeModal() {
     setIsOpen(false);

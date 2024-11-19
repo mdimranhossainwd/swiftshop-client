@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import RoleModal from "../components/modal/RoleModal";
 import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 const AllUsersPages = () => {
   const axios = useAxios();
+  const [isOpen, setIsOpen] = useState(false);
 
   const getAllUsers = async () => {
     const { data } = await axios.get("/users");
@@ -51,7 +54,7 @@ const AllUsersPages = () => {
                     </button>
                   </td>
                   <td className="px-4 py-2">
-                    <button>
+                    <button onClick={() => setIsOpen(!isOpen)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -71,6 +74,7 @@ const AllUsersPages = () => {
                       </svg>
                     </button>
                   </td>
+                  <RoleModal isOpen={isOpen} setIsOpen={setIsOpen} />
                 </tr>
               ))}
             </tbody>
