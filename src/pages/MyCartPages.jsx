@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import PaymentModal from "../components/modal/PaymentModal";
 import useAxios from "../hooks/useAxios";
 import useCart from "../hooks/useCart";
-import Modals from "../shared/Modal";
 
 const MyCartPages = () => {
   const [cart, refetch] = useCart();
@@ -171,7 +171,8 @@ const MyCartPages = () => {
                 </button>
               </div>
             </div>
-            <Modals isOpen={isOpen} setIsOpen={setIsOpen} />
+            <PaymentModal isOpen={isOpen} setIsOpen={setIsOpen} />
+            {/* <Modals /> */}
           </div>
         </div>
       )}

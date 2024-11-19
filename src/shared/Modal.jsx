@@ -1,13 +1,10 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import { Fragment } from "react";
-import CheckoutForm from "../components/form/CheckoutForm";
 
-const stripePromise = loadStripe(
-  import.meta.env.VITE_SWIFTSHOP_STRIPE_PK_TEST_KEY
-);
-const Modal = ({ isOpen, setIsOpen }) => {
+// const stripePromise = loadStripe(
+//   import.meta.env.VITE_SWIFTSHOP_STRIPE_PK_TEST_KEY
+// );
+const Modal = ({ isOpen, setIsOpen, title, children }) => {
   function closeModal() {
     setIsOpen(false);
   }
@@ -44,8 +41,8 @@ const Modal = ({ isOpen, setIsOpen }) => {
                     as="h3"
                     className="text-lg text-center flex items-center justify-center gap-4 font-medium leading-6 text-gray-900"
                   >
-                    Secure Checkout
-                    <svg
+                    {title}
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -62,11 +59,12 @@ const Modal = ({ isOpen, setIsOpen }) => {
                       <path d="m2 16 6 6" />
                       <circle cx="16" cy="9" r="2.9" />
                       <circle cx="6" cy="5" r="3" />
-                    </svg>
+                    </svg> */}
                   </Dialog.Title>
-                  <Elements stripe={stripePromise}>
+                  {/* <Elements stripe={stripePromise}>
                     <CheckoutForm />
-                  </Elements>
+                  </Elements> */}
+                  {children}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
