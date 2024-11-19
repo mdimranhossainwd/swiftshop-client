@@ -20,7 +20,7 @@ const AllUsersPages = () => {
     <>
       <div>
         <Heading heading="All Users Overview" />
-        {/* <div className="px-3 md:px-6">
+        <div className="px-3 md:px-6">
           <table className="table w-full">
             <thead className="w-full rounded-md text-white bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-center">
               <tr className="text-lg font-pt">
@@ -31,20 +31,22 @@ const AllUsersPages = () => {
                 <th className="py-[10px]">Actions</th>
               </tr>
             </thead>
-            <tbody className="w-full items-center font-semibold text-center ">
+            <tbody className="w-full items-center text-center ">
               {getUserInfo?.map((item) => (
-                <tr key={item._id}>
+                <tr key={item._id} className="border-b">
                   <td className="px-4 py-2 flex items-center">
                     <img
                       src={item?.photo}
                       alt="avatar"
-                      className="w-8 h-8 mx-auto rounded-full mr-2"
+                      className="w-8 h-8 object-cover rounded-full mr-2"
                     />
                   </td>
-                  <td className="px-4 py-2">{item?.name}</td>
-                  <td className="px-4 py-2">{item?.email}</td>
+                  <td className="px-4 py-2 text-sm font-medium">
+                    {item?.name}
+                  </td>
+                  <td className="px-4 py-2 text-sm">{item?.email}</td>
                   <td className="px-4 py-2">
-                    <button className=" w-2/3 text-black font-semibold rounded px-4 py-1">
+                    <button className=" w-2/3 text-black text-sm font-medium rounded px-4 py-1">
                       {item?.role}
                     </button>
                   </td>
@@ -73,7 +75,7 @@ const AllUsersPages = () => {
               ))}
             </tbody>
           </table>
-        </div> */}
+        </div>
       </div>
     </>
   );
