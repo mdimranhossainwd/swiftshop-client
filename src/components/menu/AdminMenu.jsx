@@ -37,7 +37,7 @@ const AdminMenu = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="my-product"
+        to="all-orders"
       >
         All Orders
       </NavLink>
