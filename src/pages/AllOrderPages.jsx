@@ -22,11 +22,11 @@ const AllOrderPages = () => {
       <Heading heading="All Orders Management" />
 
       <section className="container px-4 mx-auto">
-        <h2 className="text-lg font-medium pl-2 mt-10 text-gray-800 dark:text-white">
-          Total Orders <span>{getOderInfo?.length}</span>
+        <h2 className="text-lg font-medium pl-2 mt-14 text-gray-800 dark:text-white">
+          Total Orders __ <span>{getOderInfo?.length}</span>
         </h2>
 
-        <div className="flex flex-col mt-6">
+        <div className="flex flex-col mt-2">
           <div className=" overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-2">
               <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
@@ -35,7 +35,7 @@ const AllOrderPages = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="py-3.5 px-4 text-sm font-normal text-gray-500 dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-3 focus:outline-none">
                           <span>Oder ID</span>
@@ -70,23 +70,16 @@ const AllOrderPages = () => {
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
                       >
                         Product Name
                       </th>
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
                       >
                         Price
-                      </th>
-
-                      <th
-                        scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
-                        Category
                       </th>
 
                       <th
@@ -98,320 +91,67 @@ const AllOrderPages = () => {
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
                       >
                         Email
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
                       >
                         Brand
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                    <tr>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        <div>
-                          <h2 className="font-medium text-gray-800 dark:text-white ">
-                            Catalog
-                          </h2>
-                          <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                            catalogapp.io
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                          Customer
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 dark:text-gray-200">
-                            Content curating app
-                          </h4>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            Brings all your news into one place
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="flex items-center">
-                          <p className="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                            +4
-                          </p>
-                        </div>
-                      </td>
+                  {getOderInfo?.map((item) => (
+                    <>
+                      <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                        <tr>
+                          <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                            <div>
+                              <h2 className="font-medium text-gray-800 dark:text-white ">
+                                {item?.productId}
+                              </h2>
+                            </div>
+                          </td>
+                          <td className="px-12 py-4 text-center text-sm font-medium whitespace-nowrap">
+                            <div className="inline px-3 py-1 text-sm text-blue-400 rounded-full gap-x-2 font-semibold dark:bg-gray-800">
+                              {item?.name}
+                            </div>
+                          </td>
+                          <td className="px-4 py-4 text-center text-sm whitespace-nowrap">
+                            <div>
+                              <h4 className="text-gray-700 dark:text-gray-200">
+                                {item?.price}
+                              </h4>
+                            </div>
+                          </td>
 
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                          <div className="bg-blue-500 w-2/3 h-1.5"></div>
-                        </div>
-                      </td>
+                          <td className="px-4 py-4 text-center text-sm whitespace-nowrap">
+                            <div>
+                              <span className="text-gray-700 dark:text-gray-200">
+                                {item?.quantity}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="px-4 py-4 text-center text-sm whitespace-nowrap">
+                            <div>
+                              <p className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-500 bg-clip-text text-transparent underline dark:text-gray-200">
+                                {item?.email}
+                              </p>
+                            </div>
+                          </td>
 
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                            />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        <div>
-                          <h2 className="font-medium text-gray-800 dark:text-white ">
-                            Circooles
-                          </h2>
-                          <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                            getcirooles.com
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <div className="inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-400 gap-x-2 dark:bg-gray-800">
-                          Churned
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 dark:text-gray-200">
-                            Design software
-                          </h4>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            Super lightweight design app
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="flex items-center">
-                          <p className="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                            +4
-                          </p>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                          <div className="bg-blue-500 w-2/5 h-1.5"></div>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                            />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        <div>
-                          <h2 className="font-medium text-gray-800 dark:text-white ">
-                            Sisyphus
-                          </h2>
-                          <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                            sisyphus.com
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                          Customer
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 dark:text-gray-200">
-                            Automation and workflow
-                          </h4>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            Time tracking, invoicing and expenses
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="flex items-center">
-                          <p className="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                            +4
-                          </p>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                          <div className="bg-blue-500 w-11/12 h-1.5"></div>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                            />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        <div>
-                          <h2 className="font-medium text-gray-800 dark:text-white ">
-                            Hourglass
-                          </h2>
-                          <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                            hourglass.app
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <div className="inline px-3 py-1 text-sm font-normal text-gray-500 bg-gray-100 rounded-full dark:text-gray-400 gap-x-2 dark:bg-gray-800">
-                          Churned
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 dark:text-gray-200">
-                            Productivity app
-                          </h4>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            Time management and productivity
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="flex items-center">
-                          <p className="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                            +4
-                          </p>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                          <div className="bg-blue-500 w-1/3 h-1.5"></div>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                            />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                        <div>
-                          <h2 className="font-medium text-gray-800 dark:text-white ">
-                            Quotient
-                          </h2>
-                          <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                            quotient.co
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
-                        <div className="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                          Customer
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div>
-                          <h4 className="text-gray-700 dark:text-gray-200">
-                            Sales CRM
-                          </h4>
-                          <p className="text-gray-500 dark:text-gray-400">
-                            Web-based sales doc management
-                          </p>
-                        </div>
-                      </td>
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="flex items-center">
-                          <p className="flex items-center justify-center w-6 h-6 -mx-1 text-xs text-blue-600 bg-blue-100 border-2 border-white rounded-full">
-                            +4
-                          </p>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <div className="w-48 h-1.5 bg-blue-200 overflow-hidden rounded-full">
-                          <div className="bg-blue-500 w-1/6 h-1.5"></div>
-                        </div>
-                      </td>
-
-                      <td className="px-4 py-4 text-sm whitespace-nowrap">
-                        <button className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"
-                            />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                          <td className="px-4 text-center py-4 text-sm whitespace-nowrap">
+                            <div>
+                              <p>{item?.brand}</p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </>
+                  ))}
                 </table>
               </div>
             </div>

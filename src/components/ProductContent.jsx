@@ -48,6 +48,7 @@ const ProductContent = ({ productInfo }) => {
     brand: brand,
     rating: rating,
     warranty: warranty,
+    quantity: quantity,
     returnPolicy: returnPolicy,
     userName: user?.displayName,
     photoURL: user?.photoURL,
