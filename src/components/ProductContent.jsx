@@ -25,6 +25,13 @@ const ProductContent = ({ productInfo }) => {
   const axios = useAxios();
   const { user } = useAuth();
 
+  const date = new Date();
+  const formattedDate = `${date.getDate().toString().padStart(2, "0")}-${(
+    date.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}-${date.getFullYear()}`;
+
   const incrementQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
@@ -72,6 +79,7 @@ const ProductContent = ({ productInfo }) => {
     userName: user?.displayName,
     photoURL: user?.photoURL,
     quantity: quantity,
+    formattedDate,
     email: user?.email,
     status: "Pending",
   };

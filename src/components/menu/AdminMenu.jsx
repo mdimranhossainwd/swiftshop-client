@@ -43,7 +43,7 @@ const AdminMenu = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="my-product"
+        to="pending-product"
       >
         Pending Orders
       </NavLink>

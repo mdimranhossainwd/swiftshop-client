@@ -26,6 +26,13 @@ const Card = ({ product }) => {
   const { user } = useAuth();
   const [quantity, setQuantity] = useState(1);
 
+  const date = new Date();
+  const formattedDate = `${date.getDate().toString().padStart(2, "0")}-${(
+    date.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}-${date.getFullYear()}`;
+
   const cartAllData = {
     productId: specificId,
     name: name,
@@ -44,6 +51,7 @@ const Card = ({ product }) => {
     photoURL: user?.photoURL,
     quantity: quantity,
     email: user?.email,
+    formattedDate,
     status: "Pending",
   };
   // Add To Card Product Functions

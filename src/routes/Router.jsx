@@ -10,6 +10,7 @@ import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
+import OrderPendingPage from "../pages/OrderPendingPage";
 import ProductDetail from "../pages/ProductDetail";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "all-orders",
         element: <AllOrderPages />,
+      },
+      {
+        path: "pending-product",
+        element: <OrderPendingPage />,
       },
     ],
   },

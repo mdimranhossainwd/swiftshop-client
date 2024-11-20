@@ -31,11 +31,11 @@ const AllOrderPages = () => {
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-2">
               <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
+                  <thead className="bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-white">
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-sm font-normal text-gray-500 dark:text-gray-400"
+                        className="py-3.5 px-4 text-sm font-normal text-white dark:text-gray-400"
                       >
                         <button className="flex items-center gap-x-3 focus:outline-none">
                           <span>Oder ID</span>
@@ -70,35 +70,35 @@ const AllOrderPages = () => {
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
                       >
                         Product Name
                       </th>
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
                       >
                         Price
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-gray-400"
                       >
                         Quantity
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
                       >
                         Email
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-center text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
                       >
                         Brand
                       </th>
