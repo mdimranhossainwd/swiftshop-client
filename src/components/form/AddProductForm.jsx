@@ -23,9 +23,8 @@ const AddProductForm = () => {
       .map((item) => item.trim());
     const dimensions = form.dimensions?.value || "";
     const weight = form.weight?.value || "";
-    // const connectivity = form.connectivity.value
-    //   .split(",")
-    //   .map((item) => item.trim());
+    // const connectivity =
+    //   form.connectivity.value.split(",").map((item) => item.trim()) || "";
     const audio = form.audio?.value || "";
     const os = form.os?.value || "";
     const ram = form.ram?.value || "";
@@ -103,16 +102,16 @@ const AddProductForm = () => {
           <div>
             <label className="block font-medium mb-2">Description:</label>
             <textarea
-              className="w-full p-4 border border-gray-300 rounded"
               id="description"
+              className="w-full p-4 border border-gray-300 rounded"
               placeholder="Enter product description"
               required
             />
           </div>
         </div>
 
-        {/* Three Column Section */}
-        <div className="grid grid-cols-3 gap-4">
+        {/* Two Column Section */}
+        <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-2">Category ID:</label>
             <input
@@ -133,6 +132,10 @@ const AddProductForm = () => {
               required
             />
           </div>
+        </div>
+
+        {/* Three Column Section */}
+        <div className="grid grid-cols-3 gap-4">
           <div>
             <label className="block font-medium mb-2">Price:</label>
             <input
@@ -143,10 +146,6 @@ const AddProductForm = () => {
               required
             />
           </div>
-        </div>
-
-        {/* Four Column Section */}
-        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block font-medium mb-2">Stock:</label>
             <input
@@ -157,6 +156,19 @@ const AddProductForm = () => {
               required
             />
           </div>
+          <div>
+            <label className="block font-medium mb-2">Warranty:</label>
+            <input
+              type="text"
+              id="warranty"
+              className="w-full py-2 px-4 border border-gray-300 rounded"
+              placeholder="Enter warranty details"
+            />
+          </div>
+        </div>
+
+        {/* Four Column Section */}
+        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block font-medium mb-2">RAM:</label>
             <input
@@ -184,6 +196,81 @@ const AddProductForm = () => {
               placeholder="Enter processor details"
             />
           </div>
+          <div>
+            <label className="block font-medium mb-2">Graphics:</label>
+            <input
+              type="text"
+              id="graphics"
+              className="w-full py-2 px-4 border border-gray-300 rounded"
+              placeholder="Enter graphics details"
+            />
+          </div>
+        </div>
+        <div className="space-y-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <label className="block font-medium mb-2">Battery:</label>
+              <input
+                type="text"
+                id="battery"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Enter Battery details"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-2">Dimensions:</label>
+              <input
+                type="text"
+                id="dimensions"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Enter Dimensions Performance details"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-2">Rating:</label>
+              <input
+                type="text"
+                id="rating"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Rating"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Connectivity Section */}
+        <div className="space-y-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <label className="block font-medium mb-2">Audio:</label>
+              <input
+                type="text"
+                id="audio"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Enter audio details"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-2">
+                Operating System (OS):
+              </label>
+              <input
+                type="text"
+                id="os"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Enter OS details"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-2">Weight:</label>
+              <input
+                type="text"
+                id="weight"
+                className="w-full py-2 px-4 border border-gray-300 rounded"
+                placeholder="Enter product weight"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Highlights Section */}
@@ -209,6 +296,16 @@ const AddProductForm = () => {
             id="images"
             className="w-full py-2 px-4 border border-gray-300 rounded"
             placeholder="Enter image URLs"
+          />
+        </div>
+
+        {/* Return Policy Section */}
+        <div>
+          <label className="block font-medium mb-2">Return Policy:</label>
+          <textarea
+            id="returnPolicy"
+            className="w-full py-2 px-4 border border-gray-300 rounded"
+            placeholder="Enter return policy details"
           />
         </div>
 
