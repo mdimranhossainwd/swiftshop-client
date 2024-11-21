@@ -1,6 +1,9 @@
+import Swal from "sweetalert2";
+import useAxios from "../../hooks/useAxios";
 import Heading from "../../shared/Heading";
 
 const AddProductForm = () => {
+  const axios = useAxios();
   const addNewProduct = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,24 +15,24 @@ const AddProductForm = () => {
     const brand = form.brand.value;
     const price = parseFloat(form.price.value);
     const stock = parseInt(form.stock.value);
-    const rating = parseFloat(form.rating.value);
-    const warranty = form.warranty.value;
-    const returnPolicy = form.returnPolicy.value;
+    const rating = parseFloat(form.rating?.value || 0); // Optional field
+    const warranty = form.warranty?.value || ""; // Optional field
+    const returnPolicy = form.returnPolicy?.value || ""; // Optional field
     const highlights = form.highlights.value
       .split(",")
       .map((item) => item.trim());
-    const dimensions = form.dimensions.value;
-    const weight = form.weight.value;
-    const connectivity = form.connectivity.value
-      .split(",")
-      .map((item) => item.trim());
-    const audio = form.audio.value;
-    const os = form.os.value;
-    const ram = form.ram.value;
-    const storage = form.storage.value;
-    const graphics = form.graphics.value;
-    const processor = form.processor.value;
-    const battery = form.battery.value;
+    const dimensions = form.dimensions?.value || "";
+    const weight = form.weight?.value || "";
+    // const connectivity = form.connectivity.value
+    //   .split(",")
+    //   .map((item) => item.trim());
+    const audio = form.audio?.value || "";
+    const os = form.os?.value || "";
+    const ram = form.ram?.value || "";
+    const storage = form.storage?.value || "";
+    const graphics = form.graphics?.value || "";
+    const processor = form.processor?.value || "";
+    const battery = form.battery?.value || "";
     const images = form.images.value.split(",").map((item) => item.trim());
 
     // Constructing data object to send to backend
@@ -47,7 +50,7 @@ const AddProductForm = () => {
         ram,
         graphics,
         battery,
-        connectivity,
+        // connectivity,
         os,
         weight,
         audio,
@@ -59,11 +62,30 @@ const AddProductForm = () => {
       returnPolicy,
     };
 
+    try {
+      const { data } = await axios.post("/add-products", formAllData);
+      if (data.acknowledged) {
+        Swal.fire({
+          title: "Product Added!",
+          text: "The product has been successfully added.",
+          icon: "success",
+        });
+        form.reset(); // Reset form after successful submission
+      }
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        title: "Error",
+        text: "There was an error adding the product.",
+        icon: "error",
+      });
+    }
+
     console.log(formAllData);
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 shadow-md rounded-md">
+    <div className="max-w-6xl mx-auto px-6 mb-12 shadow-md rounded-md">
       <Heading heading="Add a New product" />
       <form onSubmit={addNewProduct} className="space-y-6">
         {/* Single Column Section */}
