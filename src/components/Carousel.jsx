@@ -53,7 +53,10 @@ const Carousel = () => {
                   transition={{ duration: 0.6 }}
                   className="animated-heading font-oswald text-5xl md:text-7xl mb-14 font-bold text-white"
                 >
-                  Welcome to <span className="text-[#128AED]">Swift Shop</span>
+                  Welcome to{" "}
+                  <span className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-300 bg-clip-text text-transparent">
+                    Swift Shop
+                  </span>
                 </motion.h2>
                 <motion.button
                   whileHover={{ scale: 0.9 }}
@@ -97,8 +100,10 @@ const Carousel = () => {
                   transition={{ duration: 0.6 }}
                   className="animated-heading font-oswald text-5xl md:text-7xl mb-14 font-bold text-white"
                 >
-                  <span className="text-[#128AED]">Tech</span> Meets
-                  Functionalityn
+                  <span className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-300 bg-clip-text text-transparent">
+                    Tech
+                  </span>{" "}
+                  Meets Functionalityn
                 </motion.h2>
                 <motion.button
                   whileHover={{ scale: 0.9 }}
@@ -143,7 +148,7 @@ const Carousel = () => {
                   className="animated-heading font-oswald text-5xl md:text-7xl mb-14 font-bold text-white"
                 >
                   Be a Part of{" "}
-                  <span className="text-[#128AED]">
+                  <span className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-500 bg-clip-text text-transparent">
                     Something <br /> Great
                   </span>
                 </motion.h2>

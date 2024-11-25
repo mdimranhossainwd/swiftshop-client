@@ -178,7 +178,7 @@ const ProductContent = ({ productInfo }) => {
   return (
     <div>
       <div className=" p-4 ml-4">
-        <h2 className="text-2xl text-[#128AED] font-bold mb-5">
+        <h2 className="text-2xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-300 bg-clip-text text-transparent font-bold mb-5">
           WholeHearted Grain Free All Life Stages Duck
         </h2>
         <div className="flex mt-[3px] items-center border-b-1 pb-5">

@@ -68,7 +68,9 @@ const HeaderMenu = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-xl text-[#128AED]">SwiftShop</p>
+          <p className="font-bold text-xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-300 bg-clip-text text-transparent">
+            SwiftShop
+          </p>
         </NavbarBrand>
       </NavbarContent>
 
