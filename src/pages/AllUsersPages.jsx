@@ -6,6 +6,7 @@ import Heading from "../shared/Heading";
 const AllUsersPages = () => {
   const axios = useAxios();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const getAllUsers = async () => {
     const { data } = await axios.get("/users");
@@ -18,6 +19,13 @@ const AllUsersPages = () => {
   });
 
   console.log(getUserInfo);
+
+  const handleOpenModal = (user) => {
+    console.log(user);
+
+    setSelectedUser(user);
+    setIsOpen(true);
+  };
 
   return (
     <>
@@ -54,7 +62,7 @@ const AllUsersPages = () => {
                     </button>
                   </td>
                   <td className="px-4 py-2">
-                    <button onClick={() => setIsOpen(!isOpen)}>
+                    <button onClick={() => handleOpenModal(item)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -74,7 +82,12 @@ const AllUsersPages = () => {
                       </svg>
                     </button>
                   </td>
-                  <RoleModal isOpen={isOpen} setIsOpen={setIsOpen} />
+                  <RoleModal
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    refetch={refetch}
+                    item={selectedUser}
+                  />
                 </tr>
               ))}
             </tbody>
