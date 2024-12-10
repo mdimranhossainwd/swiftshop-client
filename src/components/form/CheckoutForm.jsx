@@ -145,9 +145,9 @@ const CheckoutForm = () => {
             className="inline-flex w-full justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-bold "
             type="submit"
           >
-            Pay {totalCost}
+            Pay {totalCost.toFixed(2)}
           </button>
-          <button className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7ed56f] focus-visible:ring-offset-2">
+          <button className="inline-flex w-full justify-center rounded-md border border-transparent bg-red-100 px-4 py-2 text-sm font-medium hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7ed56f] focus-visible:ring-offset-2">
             Cancel
           </button>
         </div>
