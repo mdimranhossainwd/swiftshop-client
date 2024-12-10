@@ -21,6 +21,7 @@ const RoleModal = ({ isOpen, setIsOpen, item, refetch }) => {
     try {
       const { data } = await axios.delete(`/users/${id}`);
       toast.success("User deleted Successfully");
+      refetch();
     } catch (err) {
       toast.err(`Something is Wrong ${err}`);
     }
