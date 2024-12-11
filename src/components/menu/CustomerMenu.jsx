@@ -40,7 +40,7 @@ const CustomerMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="payment"
+        to="setting"
       >
         Account Settings
       </NavLink>
