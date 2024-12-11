@@ -36,19 +36,48 @@ const PaymentHistoryPages = () => {
               </tr>
             </thead>
             <tbody className="w-full items-center text-center ">
-              {getPaymentInfo?.map((item) => (
+              {getPaymentInfo?.map((item, index) => (
                 <tr key={item._id} className="border-b">
-                  <td className="px-4 py-2 flex items-center">
-                    {item?.transId}
+                  <td className="px-4 py-2 flex justify-between text-center">
+                    {index + 1}. {item?.transId}
                   </td>
                   <td className="px-4 py-2 text-sm font-medium">
-                    {item?.price}
+                    $ {item?.price.toFixed(2)}
                   </td>
-                  <td className="px-4 py-2 text-sm">{item?.formattedDate}</td>
-                  <td className="px-4 py-2 text-sm">{item?.address}</td>
-                  <td className="px-4 py-2">{item?.status}</td>
+                  <td className="px-4 py-2 text-sm font-medium">
+                    {item?.formattedDate}
+                  </td>
+                  <td className="px-4 py-2 text-sm font-medium">
+                    {item?.address}
+                  </td>
+                  <td
+                    className={`badge text-sm ${
+                      item?.status === "succeeded" &&
+                      "bg-emerald-100/90 rounded-full my-3 block px-2 text-emerald-500 -mt-4"
+                    }`}
+                  >
+                    {item?.status}
+                  </td>
                   <td className="px-4 py-2">
-                    <li>Downloaded</li>
+                    <div className="flex items-center gap-2 text-blue-500 hover:underline cursor-pointer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-arrow-down-to-line"
+                      >
+                        <path d="M12 17V3" />
+                        <path d="m6 11 6 6 6-6" />
+                        <path d="M19 21H5" />
+                      </svg>
+                      <span className="text-sm font-medium">Download</span>
+                    </div>
                   </td>
                 </tr>
               ))}
