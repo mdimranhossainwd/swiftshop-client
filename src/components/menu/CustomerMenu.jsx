@@ -26,13 +26,6 @@ const CustomerMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="my-product"
-      >
-        Wishlist
-      </NavLink>
-
-      <NavLink
-        className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
         to="review-queue"
       >
         Cart

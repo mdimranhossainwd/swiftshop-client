@@ -11,6 +11,7 @@ import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
+import PaymentHistoryPages from "../pages/PaymentHistoryPages";
 import ProductDetail from "../pages/ProductDetail";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <MyCartPages />,
+      },
+      {
+        path: "payment",
+        element: <PaymentHistoryPages />,
       },
 
       // Admin Routes Below

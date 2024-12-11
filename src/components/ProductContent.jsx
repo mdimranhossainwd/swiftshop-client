@@ -200,11 +200,11 @@ const ProductContent = ({ productInfo }) => {
             <li>Operating System iOS 14.0</li>
             <li>Product Length 9.74 inch</li>
              */}
-          <li>{highlights[0]}</li>
-          <li>{highlights[1]}</li>
-          <li>{highlights[2]}</li>
-          <li>{highlights[3]}</li>
-          <li>{highlights[4]}</li>
+          <li>{highlights?.[0]}</li>
+          <li>{highlights?.[1]}</li>
+          <li>{highlights?.[2]}</li>
+          <li>{highlights?.[3]}</li>
+          <li>{highlights?.[4]}</li>
         </div>
         <div className="flex items-center space-x-4 my-8">
           {/* Quantity Selector */}
