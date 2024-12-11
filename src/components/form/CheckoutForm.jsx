@@ -39,6 +39,14 @@ const CheckoutForm = () => {
     }
   };
 
+  const formatDate = (date) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    return date.toLocaleDateString("en-US", options).replace(",", ",");
+  };
+
+  const date = new Date(); // Specify the date
+  const formattedDate = formatDate(date);
+
   //   // Post hangle Payment
   const handlePayment = async (e) => {
     const form = e.target;
@@ -76,10 +84,12 @@ const CheckoutForm = () => {
       if (paymentIntent.status === "succeeded") {
         const paymentInfo = {
           address,
+          formattedDate,
           email: user?.email,
           name: user?.displayName,
-          status: "completed",
+          status: "succeeded",
           transId: paymentIntent.id,
+          price: cart.reduce((total, item) => total + (item?.price || 0), 0),
           carts: cart.map((item) => ({
             title: item?.title,
             name: item?.name,
@@ -102,6 +112,8 @@ const CheckoutForm = () => {
           const { data } = await axios.post("/payment", paymentInfo);
           console.log(data);
           toast.success("Payment Successfully !");
+          form.reset();
+          navigate("/dashboard/payment");
         } catch (err) {
           console.log(err);
         }
