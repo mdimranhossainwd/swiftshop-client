@@ -13,6 +13,7 @@ import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
 import PaymentHistoryPages from "../pages/PaymentHistoryPages";
 import ProductDetail from "../pages/ProductDetail";
+import TrackOrderPages from "../pages/TrackOrderPages";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
 import PrivateRouter from "./PrivateRouter";
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <MyCartPages />,
+      },
+      {
+        path: "track-product",
+        element: <TrackOrderPages />,
       },
       {
         path: "payment",
