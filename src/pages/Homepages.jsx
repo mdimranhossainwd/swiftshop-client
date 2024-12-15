@@ -5,6 +5,7 @@ import Carousel from "../components/Carousel";
 import Features from "../components/Features";
 import Newsletter from "../components/Newsletter";
 import PromoSections from "../components/PromoSections";
+import TrendingPages from "./TrendingPages";
 const Homepages = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const Homepages = () => {
       <Features />
       <PromoSections />
       <Newsletter />
+      <TrendingPages />
       <Blogs />
       <Brand />
     </div>

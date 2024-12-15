@@ -1,7 +1,11 @@
+import Heading from "../components/shared/Heading";
+
 const TrendingPages = () => {
   return (
     <>
-      <div></div>
+      <div>
+        <Heading heading="Trending New Products" />
+      </div>
     </>
   );
 };
