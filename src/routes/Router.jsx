@@ -5,6 +5,7 @@ import AddProductForm from "../components/form/AddProductForm";
 import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
 import AllOrderPages from "../pages/AllOrderPages";
+import AllProductPages from "../pages/AllProductPages";
 import AllUsersPages from "../pages/AllUsersPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "pending-product",
         element: <OrderPendingPage />,
+      },
+      {
+        path: "manage-product",
+        element: <AllProductPages />,
       },
     ],
   },
