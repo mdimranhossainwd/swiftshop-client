@@ -87,6 +87,7 @@ const CheckoutForm = () => {
           formattedDate,
           email: user?.email,
           name: user?.displayName,
+          orderStatus: "In progress",
           status: "succeeded",
           transId: paymentIntent.id,
           price: cart.reduce((total, item) => total + (item?.price || 0), 0),
