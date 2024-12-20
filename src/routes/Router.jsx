@@ -7,6 +7,7 @@ import MainLayout from "../layout/MainLayout";
 import AllOrderPages from "../pages/AllOrderPages";
 import AllProductPages from "../pages/AllProductPages";
 import AllUsersPages from "../pages/AllUsersPages";
+import AssainOrderPages from "../pages/AssainOrderPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
@@ -85,6 +86,12 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <PaymentHistoryPages />,
+      },
+
+      // Delivery Routes Below
+      {
+        path: "assigned-order",
+        element: <AssainOrderPages />,
       },
 
       // Admin Routes Below
