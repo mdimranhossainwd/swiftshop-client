@@ -7,7 +7,7 @@ import MainLayout from "../layout/MainLayout";
 import AllOrderPages from "../pages/AllOrderPages";
 import AllProductPages from "../pages/AllProductPages";
 import AllUsersPages from "../pages/AllUsersPages";
-import AssainOrderPages from "../pages/AssainOrderPages";
+import AssignOrderPages from "../pages/AssignOrderPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
 import Homepages from "../pages/Homepages";
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
       // Delivery Routes Below
       {
         path: "assigned-order",
-        element: <AssainOrderPages />,
+        element: <AssignOrderPages />,
       },
 
       // Admin Routes Below
