@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 
@@ -16,6 +17,16 @@ const AssignOrderPages = () => {
   });
 
   console.log(getPaymentsData);
+
+  // Order status changed to "In progress"
+
+  const handleOrderStatus = async (id, prevStatus, orderStatus) => {
+    const { data } = await axios.patch(`/payments/${id}`, {
+      orderStatus,
+    });
+    toast.success(`Order status changed to ${data.currentStatus}`);
+    refetch();
+  };
 
   return (
     <>
@@ -51,26 +62,41 @@ const AssignOrderPages = () => {
                     className={`text-xs px-1 my-3 w-24 mx-auto block py-1 font-medium ${
                       item?.orderStatus === "In progress" &&
                       "bg-orange-100/80 text-orange-500 rounded-full"
-                    }`}
+                    } ${
+                      item?.orderStatus === "Delivered" &&
+                      "bg-green-100/80 text-green-500 rounded-full"
+                    }  `}
                   >
                     {item?.orderStatus}
                   </td>
 
                   <td className="px-4 py-2 items-center text-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="lucide lucide-check"
+                    <button
+                      onClick={() =>
+                        handleOrderStatus(
+                          item?._id,
+                          item?.orderStatus,
+                          "Delivered"
+                        )
+                      }
+                      disabled={item.orderStatus === "Delivered"}
+                      className="disabled:cursor-not-allowed"
                     >
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check"
+                      >
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </button>
                   </td>
                 </tr>
               ))}
