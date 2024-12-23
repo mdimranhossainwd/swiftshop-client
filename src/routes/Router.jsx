@@ -10,6 +10,7 @@ import AllUsersPages from "../pages/AllUsersPages";
 import AssignOrderPages from "../pages/AssignOrderPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
+import DeliveryHistoryPages from "../pages/DeliveryHistoryPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "assigned-order",
         element: <AssignOrderPages />,
+      },
+      {
+        path: "delivery-history",
+        element: <DeliveryHistoryPages />,
       },
 
       // Admin Routes Below

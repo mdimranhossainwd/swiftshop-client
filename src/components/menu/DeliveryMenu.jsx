@@ -19,7 +19,7 @@ const DeliveryMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="my-product"
+        to="delivery-history"
       >
         Delivery History
       </NavLink>
