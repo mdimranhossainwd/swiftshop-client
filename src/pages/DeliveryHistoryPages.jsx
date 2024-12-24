@@ -1,5 +1,11 @@
+import Heading from "../shared/Heading";
+
 const DeliveryHistoryPages = () => {
-  return <></>;
+  return (
+    <>
+      <Heading heading="Completed All Delivery Products" />
+    </>
+  );
 };
 
 export default DeliveryHistoryPages;
