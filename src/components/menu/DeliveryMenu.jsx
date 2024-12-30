@@ -33,7 +33,7 @@ const DeliveryMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="review-queue"
+        to="profile-setting"
       >
         Profile Settings
       </NavLink>

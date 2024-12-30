@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/authentications/Login";
 import Register from "../components/authentications/Register";
 import AddProductForm from "../components/form/AddProductForm";
+import ProfileSetting from "../components/ProfileSetting";
 import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
 import AllOrderPages from "../pages/AllOrderPages";
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <PaymentHistoryPages />,
+      },
+      {
+        path: "profile-setting",
+        element: <ProfileSetting />,
       },
 
       // Delivery Routes Below
