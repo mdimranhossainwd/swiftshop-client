@@ -1,14 +1,14 @@
+import { useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const ProfileSetting = () => {
   const { user } = useAuth();
+  const { id } = useParams();
+  console.log(id);
 
   return (
     <>
       <div className=" min-h-screen p-6 flex justify-center">
-        {/* <Helmet>
-        <title>DevSpotLight || My-Profile</title>
-      </Helmet> */}
         <div className="bg-white border rounded-lg max-w-4xl w-full">
           {/* Header */}
           <div
