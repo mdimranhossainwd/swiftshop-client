@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/authentications/Login";
 import Register from "../components/authentications/Register";
 import AddProductForm from "../components/form/AddProductForm";
+import UpdateProductForm from "../components/form/UpdateProductForm";
 import ProfileSetting from "../components/ProfileSetting";
 import DashboardLayout from "../layout/DashboardLayout";
 import MainLayout from "../layout/MainLayout";
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "manage-product",
         element: <AllProductPages />,
+      },
+      {
+        path: "/dashboard/edit-product/:id",
+        element: <UpdateProductForm />,
       },
     ],
   },

@@ -1,5 +1,11 @@
+import Heading from "../../shared/Heading";
+
 const UpdateProductForm = () => {
-  return <></>;
+  return (
+    <>
+      <Heading heading="Update Product Info" />
+    </>
+  );
 };
 
 export default UpdateProductForm;

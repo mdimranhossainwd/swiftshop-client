@@ -124,7 +124,7 @@ const AllProductPages = () => {
 
                             <td className="px-4 text-center py-4 text-sm whitespace-nowrap">
                               <Link
-                                to={`/edit-product/${item?._id}`}
+                                to={`/dashboard/edit-product/${item?._id}`}
                                 className="text-black-400 dark:text-blue-400"
                               >
                                 <button>
