@@ -1,9 +1,43 @@
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useAxios from "../../hooks/useAxios";
 import Heading from "../../shared/Heading";
 
 const UpdateProductForm = () => {
   const { id } = useParams();
-  console.log(id);
+  const axios = useAxios();
+  const [singleProduct, setSingleProduct] = useState([]);
+
+  const getAllOrdersData = async () => {
+    const { data } = await axios.get("/add-products");
+    return data;
+  };
+
+  const { data: getOderInfo, refetch } = useQuery({
+    queryKey: ["getOderInfo"],
+    queryFn: getAllOrdersData,
+  });
+
+  useEffect(() => {
+    const findProduct = getOderInfo?.find((product) => product._id === id);
+    setSingleProduct(findProduct);
+  }, [id, getOderInfo]);
+  const {
+    _id,
+    name,
+    categoryId,
+    price,
+    stock,
+    description,
+    highlights,
+    specifications,
+    images,
+    brand,
+    rating,
+    warranty,
+    returnPolicy,
+  } = singleProduct || {};
 
   return (
     <>
@@ -18,7 +52,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="name"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter product name"
+                defaultValue={name}
                 required
               />
             </div>
@@ -27,7 +61,7 @@ const UpdateProductForm = () => {
               <textarea
                 id="description"
                 className="w-full p-4 border border-gray-300 rounded"
-                placeholder="Enter product description"
+                defaultValue={description}
                 required
               />
             </div>
@@ -41,7 +75,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="categoryId"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter category ID"
+                defaultValue={categoryId}
                 required
               />
             </div>
@@ -51,7 +85,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="brand"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter brand name"
+                defaultValue={brand}
                 required
               />
             </div>
@@ -65,7 +99,7 @@ const UpdateProductForm = () => {
                 type="number"
                 id="price"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter product price"
+                defaultValue={price}
                 required
               />
             </div>
@@ -75,7 +109,7 @@ const UpdateProductForm = () => {
                 type="number"
                 id="stock"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter stock quantity"
+                defaultValue={stock}
                 required
               />
             </div>
@@ -85,7 +119,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="warranty"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter warranty details"
+                defaultValue={warranty}
               />
             </div>
           </div>
@@ -98,7 +132,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="ram"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter RAM size"
+                defaultValue={specifications?.ram}
               />
             </div>
             <div>
@@ -107,7 +141,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="storage"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter storage capacity"
+                defaultValue={specifications?.storage}
               />
             </div>
             <div>
@@ -116,7 +150,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="processor"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter processor details"
+                defaultValue={specifications?.processor}
               />
             </div>
             <div>
@@ -125,7 +159,7 @@ const UpdateProductForm = () => {
                 type="text"
                 id="graphics"
                 className="w-full py-2 px-4 border border-gray-300 rounded"
-                placeholder="Enter graphics details"
+                defaultValue={specifications?.graphics}
               />
             </div>
           </div>
@@ -137,7 +171,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="battery"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Enter Battery details"
+                  defaultValue={specifications?.battery}
                 />
               </div>
               <div>
@@ -146,7 +180,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="dimensions"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Enter Dimensions Performance details"
+                  defaultValue={specifications?.dimensions}
                 />
               </div>
               <div>
@@ -155,7 +189,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="rating"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Rating"
+                  defaultValue={rating}
                 />
               </div>
             </div>
@@ -170,7 +204,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="audio"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Enter audio details"
+                  defaultValue={specifications?.audio}
                 />
               </div>
               <div>
@@ -181,7 +215,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="os"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Enter OS details"
+                  defaultValue={specifications?.os}
                 />
               </div>
               <div>
@@ -190,7 +224,7 @@ const UpdateProductForm = () => {
                   type="text"
                   id="weight"
                   className="w-full py-2 px-4 border border-gray-300 rounded"
-                  placeholder="Enter product weight"
+                  defaultValue={specifications?.weight}
                 />
               </div>
             </div>
@@ -205,7 +239,7 @@ const UpdateProductForm = () => {
               type="text"
               id="highlights"
               className="w-full py-2 px-4 border border-gray-300 rounded"
-              placeholder="Enter product highlights"
+              defaultValue={highlights}
             />
           </div>
 
@@ -218,7 +252,7 @@ const UpdateProductForm = () => {
               type="text"
               id="images"
               className="w-full py-2 px-4 border border-gray-300 rounded"
-              placeholder="Enter image URLs"
+              defaultValue={images}
             />
           </div>
 
@@ -228,7 +262,7 @@ const UpdateProductForm = () => {
             <textarea
               id="returnPolicy"
               className="w-full py-2 px-4 border border-gray-300 rounded"
-              placeholder="Enter return policy details"
+              defaultValue={returnPolicy}
             />
           </div>
 
