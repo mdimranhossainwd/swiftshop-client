@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 
@@ -35,49 +36,49 @@ const AllProductPages = () => {
                       <tr>
                         <th
                           scope="col"
-                          className="py-3.5 px-4 text-sm font-normal text-white dark:text-gray-400"
+                          className="py-3.5 px-4 text-md font-medium text-white dark:text-gray-400"
                         >
                           #
                         </th>
 
                         <th
                           scope="col"
-                          className="px-12 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
+                          className="px-12 py-3.5 text-md font-medium text-center text-white dark:text-gray-400"
                         >
                           Image
                         </th>
 
                         <th
                           scope="col"
-                          className="px-12 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
+                          className="px-12 py-3.5 text-md font-medium text-center text-white dark:text-gray-400"
                         >
                           Product Name
                         </th>
 
                         <th
                           scope="col"
-                          className="px-12 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
+                          className="px-12 py-3.5 text-md font-medium text-center text-white dark:text-gray-400"
                         >
                           Price
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-white dark:text-gray-400"
+                          className="px-4 py-3.5 text-md font-medium text-center rtl:text-right text-white dark:text-gray-400"
                         >
                           Category
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
+                          className="px-4 py-3.5 text-md font-medium text-center text-white dark:text-gray-400"
                         >
                           Stock
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-sm font-normal text-center text-white dark:text-gray-400"
+                          className="px-4 py-3.5 text-md font-medium text-center text-white dark:text-gray-400"
                         >
                           Action
                         </th>
@@ -98,47 +99,52 @@ const AllProductPages = () => {
                               />
                             </td>
                             <td className="px-12 py-4 text-center text-sm font-medium whitespace-nowrap">
-                              <div className="inline px-3 py-1 text-sm text-blue-400 rounded-full gap-x-2 font-semibold dark:bg-gray-800">
+                              <div className="inline px-3 py-1 text-md text-blue-400 rounded-full gap-x-2 font-semibold dark:bg-gray-800">
                                 {item?.name}
                               </div>
                             </td>
                             <td className="px-4 py-4 text-center text-sm whitespace-nowrap">
                               <div>
-                                <h4 className="text-gray-700 dark:text-gray-200">
+                                <h4 className="text-gray-700 font-medium dark:text-gray-200">
                                   {item?.price}
                                 </h4>
                               </div>
                             </td>
 
-                            <td className="px-4 py-4  text-sm whitespace-nowrap">
+                            <td className="px-4 py-4 font-semibold text-center text-sm whitespace-nowrap">
                               {item?.categoryId}
                             </td>
                             <td className="px-4 py-4 text-center text-sm whitespace-nowrap">
                               <div>
-                                <p className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-500 bg-clip-text text-transparent underline dark:text-gray-200">
+                                <p className="bg-gradient-to-r font-bold from-blue-700 via-blue-400 to-blue-500 bg-clip-text text-transparent underline dark:text-gray-200">
                                   {item?.stock}
                                 </p>
                               </div>
                             </td>
 
                             <td className="px-4 text-center py-4 text-sm whitespace-nowrap">
-                              <button>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  className="lucide lucide-pencil"
-                                >
-                                  <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
-                                  <path d="m15 5 4 4" />
-                                </svg>
-                              </button>
+                              <Link
+                                to={`/edit-product/${item?._id}`}
+                                className="text-black-400 dark:text-blue-400"
+                              >
+                                <button>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="lucide lucide-pencil"
+                                  >
+                                    <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                                    <path d="m15 5 4 4" />
+                                  </svg>
+                                </button>
+                              </Link>
                             </td>
                           </tr>
                         </tbody>
