@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import Heading from "../../shared/Heading";
@@ -39,11 +40,78 @@ const UpdateProductForm = () => {
     returnPolicy,
   } = singleProduct || {};
 
+  const addToUpdateProduct = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const name = form.name.value;
+    const description = form.description.value;
+    const categoryId = form.categoryId.value;
+    const brand = form.brand.value;
+    const price = parseFloat(form.price.value);
+    const stock = parseInt(form.stock.value);
+    const rating = parseFloat(form.rating?.value || 0); // Optional field
+    const warranty = form.warranty?.value || ""; // Optional field
+    const returnPolicy = form.returnPolicy?.value || ""; // Optional field
+    const highlights = form.highlights.value
+      .split(",")
+      .map((item) => item.trim());
+    const dimensions = form.dimensions?.value || "";
+    const weight = form.weight?.value || "";
+    // const connectivity =
+    //   form.connectivity.value.split(",").map((item) => item.trim()) || "";
+    const audio = form.audio?.value || "";
+    const os = form.os?.value || "";
+    const ram = form.ram?.value || "";
+    const storage = form.storage?.value || "";
+    const graphics = form.graphics?.value || "";
+    const processor = form.processor?.value || "";
+    const battery = form.battery?.value || "";
+    const images = form.images.value.split(",").map((item) => item.trim());
+
+    // Constructing data object to send to backend
+    const formAllData = {
+      name,
+      categoryId,
+      price,
+      stock,
+      description,
+      highlights,
+      specifications: {
+        dimensions,
+        processor,
+        storage,
+        ram,
+        graphics,
+        battery,
+        // connectivity,
+        os,
+        weight,
+        audio,
+      },
+      images,
+      brand,
+      rating,
+      warranty,
+      returnPolicy,
+    };
+
+    try {
+      const { data } = await axios.put(`/add-products/${_id}`, formAllData);
+      toast.success("Product updated successfully");
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to update product");
+    }
+
+    console.log(formAllData);
+  };
+
   return (
     <>
       <div className="max-w-6xl mx-auto px-6 mb-12 shadow-md rounded-md">
         <Heading heading="Update Product Info" />
-        <form className="space-y-6">
+        <form onSubmit={addToUpdateProduct} className="space-y-6">
           {/* Single Column Section */}
           <div className="space-y-4">
             <div>
