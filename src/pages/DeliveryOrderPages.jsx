@@ -1,5 +1,11 @@
+import Heading from "../shared/Heading";
+
 const DeliveryOrderPages = () => {
-  return <></>;
+  return (
+    <>
+      <Heading heading="Delivery Order Pages" />
+    </>
+  );
 };
 
 export default DeliveryOrderPages;
