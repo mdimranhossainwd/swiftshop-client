@@ -13,6 +13,7 @@ import AssignOrderPages from "../pages/AssignOrderPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
 import ContactPages from "../pages/ContactPages";
 import DeliveryHistoryPages from "../pages/DeliveryHistoryPages";
+import DeliveryOrderPages from "../pages/DeliveryOrderPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
@@ -129,6 +130,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit-product/:id",
         element: <UpdateProductForm />,
+      },
+      {
+        path: "delivery-product-history",
+        element: <DeliveryOrderPages />,
       },
     ],
   },
