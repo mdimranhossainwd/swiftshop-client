@@ -46,7 +46,7 @@ const AssignOrderPages = () => {
               >
                 <option value="All">All</option>
                 <option value="Delivered">Delivered</option>
-                <option value="Pending">Pending</option>
+                <option value="InProgress">In progress</option>
                 <option value="Inactive">Inactive</option>
               </select>
             </div>
