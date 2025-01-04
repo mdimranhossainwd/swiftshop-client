@@ -1,6 +1,8 @@
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const ProductReview = () => {
+  const { user } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState(0);
@@ -68,9 +70,9 @@ const ProductReview = () => {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="mail@page.com"
-            className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-indigo-200"
+            onChange={(e) => setEmail(user?.email)}
+            placeholder={user ? user.email : ""}
+            className="w-full border border-gray-300 rounded-md cursor-not-allowed p-2 focus:outline-none focus:ring focus:ring-indigo-200"
             required
           />
         </div>
