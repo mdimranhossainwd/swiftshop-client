@@ -40,14 +40,14 @@ const DeliveryMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="payment"
+        to="notifications"
       >
         Notifications
       </NavLink>
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="payment"
+        to="support"
       >
         Support
       </NavLink>
