@@ -32,6 +32,74 @@ const AssignOrderPages = () => {
     <>
       <div>
         <Heading heading="All Assign Order Product" />
+
+        <div className="p-4 bg-white">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
+            {/* Status Dropdown */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Status
+              </label>
+              <select
+                name="status"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              >
+                <option value="All">All</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Pending">Pending</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+
+            {/* Sort By Dropdown */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Sort By
+              </label>
+              <select
+                name="sortBy"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              >
+                <option value="Id">Id</option>
+                <option value="ProductID">Product ID</option>
+                <option value="Date">Date</option>
+              </select>
+            </div>
+
+            {/* Sort Order Dropdown */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Sort Order
+              </label>
+              <select
+                name="sortOrder"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              >
+                <option value="SortOrder">Sort Order</option>
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+              </select>
+            </div>
+          </div>
+          {/* Search Input */}
+          <div className="w-full my-3">
+            <label className="block text-sm font-medium text-gray-700">
+              Search
+            </label>
+            <div className="flex gap-4 items-center mt-1">
+              <input
+                type="text"
+                name="search"
+                placeholder="Search users"
+                className="flex-grow py-2 px-5 border border-gray-300 rounded-l-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              />
+              <button className="p-2 w-24 bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-white rounded-r-md font-medium text-[14px]">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="px-3 md:px-6">
           <table className="table w-full">
             <thead className="w-full rounded-md text-white bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-center">
@@ -49,11 +117,11 @@ const AssignOrderPages = () => {
               {getPaymentsData?.map((item, index) => (
                 <tr key={item._id} className="border-b">
                   <td className="px-4 py-2 flex items-center text-center justify-center text-[12px] font-bold">
-                    P00{index + 1}
+                    # P00{index + 1}
                   </td>
                   <td className="px-4 py-2 text-[12px] font-bold">
                     {" "}
-                    ORD00{index + 1}
+                    # ORD00{index + 1}
                   </td>
                   <td className="px-4 py-2 text-sm "> {item?.name}</td>
                   <td className="px-4 py-2 text-sm "> {item?.address}</td>
