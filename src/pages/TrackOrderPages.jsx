@@ -42,7 +42,10 @@ const TrackOrderPages = () => {
                   </td>
                   <td className="px-4 py-2 text-sm ">{item?.formattedDate}</td>
                   <td className="px-4 py-2 text-sm ">{item?.name}</td>
-                  <td className="px-4 py-2 text-sm "> ${item?.price}</td>
+                  <td className="px-4 py-2 text-sm ">
+                    {" "}
+                    ${item?.price.toFixed(2)}
+                  </td>
                   <td>
                     {item?.carts
                       ?.map((cartItem) => cartItem?.name)
