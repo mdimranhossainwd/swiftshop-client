@@ -26,7 +26,7 @@ const HeaderMenu = () => {
   const navMenuItems = (
     <>
       <NavLink>Home</NavLink>
-      <NavLink>Product</NavLink>
+      <NavLink to="/all-products">Product</NavLink>
       <NavLink>Shop</NavLink>
       <NavLink>Menu</NavLink>
       <NavLink>Blog</NavLink>

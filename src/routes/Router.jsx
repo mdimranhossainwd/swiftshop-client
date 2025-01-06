@@ -19,6 +19,7 @@ import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
 import PaymentHistoryPages from "../pages/PaymentHistoryPages";
 import ProductDetail from "../pages/ProductDetail";
+import ProductsPages from "../pages/ProductsPages";
 import TrackOrderPages from "../pages/TrackOrderPages";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             <WishlistsPage />,
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/all-products",
+        element: <ProductsPages />,
       },
       // {
       //   path: "/mycart",
