@@ -1,7 +1,7 @@
 const BlogLeftSide = () => {
   return (
     <>
-      <aside className="w-full lg:w-1/4 border p-6 rounded-lg mb-6 lg:mb-0">
+      <aside className="w-full  border p-6 rounded-lg mb-6 lg:mb-0">
         {/* Search Blog */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold mb-2 border-b py-2">
