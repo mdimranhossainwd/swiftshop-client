@@ -29,7 +29,7 @@ const HeaderMenu = () => {
       <NavLink to="/all-products">Product</NavLink>
       <NavLink>Shop</NavLink>
       <NavLink>Menu</NavLink>
-      <NavLink>Blog</NavLink>
+      <NavLink to="/blogs">Blog</NavLink>
       <NavLink to="/contact">Contact</NavLink>
       <NavLink to="/wishlists" className="flex gap-4 items-center">
         <div className="relative inline-block">

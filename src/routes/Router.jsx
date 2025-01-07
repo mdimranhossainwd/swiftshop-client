@@ -11,6 +11,7 @@ import AllProductPages from "../pages/AllProductPages";
 import AllUsersPages from "../pages/AllUsersPages";
 import AssignOrderPages from "../pages/AssignOrderPages";
 import BlogDetailsPage from "../pages/BlogDetailsPage";
+import BlogsPages from "../pages/BlogsPages";
 import ContactPages from "../pages/ContactPages";
 import DeliveryHistoryPages from "../pages/DeliveryHistoryPages";
 import DeliveryOrderPages from "../pages/DeliveryOrderPages";
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/all-products",
         element: <ProductsPages />,
+      },
+      {
+        path: "/blogs",
+        element: <BlogsPages />,
       },
       // {
       //   path: "/mycart",

@@ -3,7 +3,9 @@ import Heading from "../components/shared/Heading";
 const BlogsPages = () => {
   return (
     <>
-      <Heading heading="All Blogs Here" />
+      <div className="my-8">
+        <Heading heading="All Blogs Here" />
+      </div>
     </>
   );
 };
