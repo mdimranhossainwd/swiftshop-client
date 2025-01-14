@@ -143,7 +143,7 @@ const router = createBrowserRouter([
       },
       {
         path: "delivery-product-history",
-        element: <DeliveryOrderPages />,
+        element: <AssignOrderPages />,
       },
     ],
   },
