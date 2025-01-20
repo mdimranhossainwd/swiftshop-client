@@ -1,7 +1,9 @@
+import Heading from "../shared/Heading";
+
 const RevenuePages = () => {
   return (
     <>
-      <h2>Revenue Analytics</h2>
+      <Heading heading="Revenue Analytics " />
     </>
   );
 };
