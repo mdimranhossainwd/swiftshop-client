@@ -50,7 +50,7 @@ const AdminMenu = () => {
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="my-product"
+        to="revenue-analytics"
       >
         Revenue Analytics
       </NavLink>

@@ -14,13 +14,13 @@ import BlogDetailsPage from "../pages/BlogDetailsPage";
 import BlogsPages from "../pages/BlogsPages";
 import ContactPages from "../pages/ContactPages";
 import DeliveryHistoryPages from "../pages/DeliveryHistoryPages";
-import DeliveryOrderPages from "../pages/DeliveryOrderPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
 import PaymentHistoryPages from "../pages/PaymentHistoryPages";
 import ProductDetail from "../pages/ProductDetail";
 import ProductsPages from "../pages/ProductsPages";
+import RevenuePages from "../pages/RevenuePages";
 import TrackOrderPages from "../pages/TrackOrderPages";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
@@ -144,6 +144,10 @@ const router = createBrowserRouter([
       {
         path: "delivery-product-history",
         element: <AssignOrderPages />,
+      },
+      {
+        path: "revenue-analytics",
+        element: <RevenuePages />,
       },
     ],
   },
