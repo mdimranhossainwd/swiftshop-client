@@ -1,8 +1,10 @@
+import Heading from "../components/shared/Heading";
+
 const EarningPages = () => {
   return (
-    <div>
-      <h2>Earning Pages</h2>
-    </div>
+    <>
+      <Heading heading="Total Earning Pages" />
+    </>
   );
 };
 
