@@ -1,22 +1,44 @@
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 
 const AssignOrderPages = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const [product, setProduct] = useState([]);
   const axios = useAxios();
 
-  const getData = async () => {
-    const { data } = await axios.get("/payments");
-    return data;
-  };
-
   const { data: getPaymentsData, refetch } = useQuery({
-    queryKey: "getPaymentsData",
-    queryFn: getData,
+    queryKey: ["getPaymentsData", currentPage, itemsPerPage],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `/payments?pages=${currentPage}&size=${itemsPerPage}`
+      );
+      return data;
+    },
   });
 
+  useEffect(() => {
+    const getCount = async () => {
+      const { data } = await axios.get(`/products-count`);
+      setCount(data.count);
+    };
+    getCount();
+  }, []);
+
   console.log(getPaymentsData);
+
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [...Array(numberOfPages).keys()].map(
+    (elements) => elements + 1
+  );
+
+  const handlePaginationButton = (value) => {
+    setCurrentPage(value);
+  };
 
   // Order status changed to "In progress"
 
@@ -172,41 +194,70 @@ const AssignOrderPages = () => {
           </table>
         </div>
 
-        <div className="flex items-center justify-center mt-10 mb-5">
-          <a
-            href="#"
-            className="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform  rounded-md dark:bg-gray-800 font-semibold bg-gray-300 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white "
+        <div className="flex justify-center mt-12">
+          {/* Previous Button */}
+          <button
+            disabled={currentPage === 1}
+            onClick={() => handlePaginationButton(currentPage - 1)}
+            className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-[#28b485]  hover:text-white"
           >
-            previous
-          </a>
+            <div className="flex items-center -mx-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
 
-          <a
-            href="#"
-            className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform  rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 dark:hover:text-gray-200"
-          >
-            1
-          </a>
+              <span className="mx-1">previous</span>
+            </div>
+          </button>
+          {/* Numbers */}
+          {pages.map((btnNum) => (
+            <button
+              onClick={() => handlePaginationButton(btnNum)}
+              key={btnNum}
+              className={`hidden ${
+                currentPage === btnNum ? "bg-[#28b485] text-white" : ""
+              } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline  hover:bg-[#7ed56f] hover:text-white`}
+            >
+              {btnNum}
+            </button>
+          ))}
 
-          <a
-            href="#"
-            className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform  rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 dark:hover:text-gray-200"
+          {/* Next Button */}
+          <button
+            disabled={currentPage === numberOfPages}
+            onClick={() => handlePaginationButton(currentPage + 1)}
+            className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-[#28b485] disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
           >
-            2
-          </a>
+            <div className="flex items-center -mx-1">
+              <span className="mx-1">Next</span>
 
-          <a
-            href="#"
-            className="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform  rounded-md sm:flex dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-600 dark:hover:bg-blue-500 dark:hover:text-gray-200"
-          >
-            3
-          </a>
-
-          <a
-            href="#"
-            className="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform  rounded-md dark:bg-gray-800 font-semibold bg-gray-300 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white "
-          >
-            Next
-          </a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 mx-1 rtl:-scale-x-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
     </>
