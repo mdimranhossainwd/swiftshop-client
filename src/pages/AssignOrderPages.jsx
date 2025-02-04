@@ -5,17 +5,18 @@ import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 
 const AssignOrderPages = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(2);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
   const [product, setProduct] = useState([]);
+  const [filter, setFilter] = useState("");
   const axios = useAxios();
 
   const { data: getPaymentsData, refetch } = useQuery({
-    queryKey: ["getPaymentsData", currentPage, itemsPerPage],
+    queryKey: ["getPaymentsData", currentPage, itemsPerPage, filter],
     queryFn: async () => {
       const { data } = await axios.get(
-        `/payments?pages=${currentPage}&size=${itemsPerPage}`
+        `/payments?pages=${currentPage}&size=${itemsPerPage}&filter=${filter}`
       );
       return data;
     },
@@ -63,12 +64,14 @@ const AssignOrderPages = () => {
                 Status
               </label>
               <select
-                name="status"
+                onChange={(e) => setFilter(e.target.value)}
+                value={filter}
+                name="orderStatus"
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
               >
-                <option value="All">All</option>
+                <option value="">All</option>
                 <option value="Delivered">Delivered</option>
-                <option value="InProgress">In progress</option>
+                <option value="In progress">In progress</option>
                 <option value="Inactive">Inactive</option>
               </select>
             </div>
