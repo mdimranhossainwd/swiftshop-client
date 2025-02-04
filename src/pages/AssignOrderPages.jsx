@@ -199,7 +199,7 @@ const AssignOrderPages = () => {
           <button
             disabled={currentPage === 1}
             onClick={() => handlePaginationButton(currentPage - 1)}
-            className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-[#28b485]  hover:text-white"
+            className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-blue-500  hover:text-white"
           >
             <div className="flex items-center -mx-1">
               <svg
@@ -226,8 +226,8 @@ const AssignOrderPages = () => {
               onClick={() => handlePaginationButton(btnNum)}
               key={btnNum}
               className={`hidden ${
-                currentPage === btnNum ? "bg-[#28b485] text-white" : ""
-              } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline  hover:bg-[#7ed56f] hover:text-white`}
+                currentPage === btnNum ? "bg-blue-500 text-white" : ""
+              } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline  hover:bg-blue-600 hover:text-white`}
             >
               {btnNum}
             </button>
@@ -237,7 +237,7 @@ const AssignOrderPages = () => {
           <button
             disabled={currentPage === numberOfPages}
             onClick={() => handlePaginationButton(currentPage + 1)}
-            className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-[#28b485] disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
+            className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-blue-600 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
           >
             <div className="flex items-center -mx-1">
               <span className="mx-1">Next</span>
