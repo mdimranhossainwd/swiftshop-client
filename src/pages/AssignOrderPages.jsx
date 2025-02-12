@@ -5,18 +5,19 @@ import useAxios from "../hooks/useAxios";
 import Heading from "../shared/Heading";
 
 const AssignOrderPages = () => {
-  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
   const [product, setProduct] = useState([]);
   const [filter, setFilter] = useState("");
+  const [sort, setSort] = useState("");
   const axios = useAxios();
 
   const { data: getPaymentsData, refetch } = useQuery({
-    queryKey: ["getPaymentsData", currentPage, itemsPerPage, filter],
+    queryKey: ["getPaymentsData", currentPage, itemsPerPage, filter, sort],
     queryFn: async () => {
       const { data } = await axios.get(
-        `/payments?pages=${currentPage}&size=${itemsPerPage}&filter=${filter}`
+        `/payments?pages=${currentPage}&size=${itemsPerPage}&filter=${filter}&sort=${sort}`
       );
       return data;
     },
@@ -97,12 +98,14 @@ const AssignOrderPages = () => {
                 Sort Order
               </label>
               <select
+                onChange={(e) => setSort(e.target.value)}
+                value={sort}
                 name="sortOrder"
                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
               >
                 <option value="SortOrder">Sort Order</option>
-                <option value="Ascending">Ascending</option>
-                <option value="Descending">Descending</option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
               </select>
             </div>
           </div>
