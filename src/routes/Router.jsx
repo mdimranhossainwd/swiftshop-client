@@ -14,6 +14,7 @@ import BlogDetailsPage from "../pages/BlogDetailsPage";
 import BlogsPages from "../pages/BlogsPages";
 import ContactPages from "../pages/ContactPages";
 import DeliveryHistoryPages from "../pages/DeliveryHistoryPages";
+import EarningPages from "../pages/EarningPages";
 import Homepages from "../pages/Homepages";
 import MyCartPages from "../pages/MyCartPages";
 import OrderPendingPage from "../pages/OrderPendingPage";
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: "delivery-history",
         element: <DeliveryHistoryPages />,
+      },
+      {
+        path: "earning",
+        element: <EarningPages />,
       },
 
       // Admin Routes Below

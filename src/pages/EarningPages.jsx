@@ -1,9 +1,9 @@
-import Heading from "../components/shared/Heading";
+import Heading from "../shared/Heading";
 
 const EarningPages = () => {
   return (
     <>
-      <Heading heading="Total Earning Pages" />
+      <Heading heading="Earning Overview" />
     </>
   );
 };
