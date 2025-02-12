@@ -24,7 +24,7 @@ const AllUsersPages = () => {
     queryKey: ["getUserInfo", itemsPerPage, currentPage, filter, sort],
     queryFn: async () => {
       const { data } = await axios.get(
-        `/users?pages=${currentPage}&size=${itemsPerPage}`
+        `/users?pages=${currentPage}&size=${itemsPerPage}&filter=${filter}`
       );
       return data;
     },
@@ -62,6 +62,50 @@ const AllUsersPages = () => {
     <>
       <div>
         <Heading heading="All Users Overview" />
+
+        <div className="p-6 bg-white">
+          {/* Search & Filter Section */}
+          <div className="flex gap-4 items-end">
+            {/* Search Input */}
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Search
+              </label>
+              <input
+                type="text"
+                name="search"
+                placeholder="Search users"
+                className="w-full py-2 px-5 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              />
+            </div>
+
+            {/* Status Dropdown */}
+            <div className="w-1/4">
+              <label className="block text-sm font-medium text-gray-700">
+                Status
+              </label>
+              <select
+                onChange={(e) => setFilter(e.target.value)}
+                value={filter}
+                name="orderStatus"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-sm"
+              >
+                <option value="">All</option>
+                <option value="admin">Admin</option>
+                <option value="customer">Customer</option>
+                <option value="delivery">Delivery</option>
+              </select>
+            </div>
+
+            {/* Reset Button */}
+            <div className="w-24">
+              <button className="w-full p-2 bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-white rounded-md font-medium text-[14px]">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="px-3 md:px-6">
           <table className="table w-full">
             <thead className="w-full rounded-md text-white bg-gradient-to-r from-blue-400 via-blue-400 to-blue-600 text-center">
