@@ -16,6 +16,9 @@ const Login = () => {
     const { email, password } = data;
     try {
       const result = await signIn(email, password);
+      const { data } = await axios.post("/jwt", result?.user?.email);
+      console.log(data);
+
       console.log(result);
       toast.success("SignIn Successfully");
       navigate(from, { replace: true });
@@ -36,6 +39,10 @@ const Login = () => {
       //   photo: result?.user?.photoURL,
       //   role: "customer",
       // });
+
+      const { data } = await axios.post("/jwt", result?.user?.email);
+      console.log(data);
+
       navigate(from, { replace: true });
       toast.success("Google login successfully.");
       navigate("/");

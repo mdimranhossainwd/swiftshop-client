@@ -27,6 +27,10 @@ const Register = () => {
         photo,
         role: "customer",
       });
+
+      const { info } = await axios.post("/jwt", result?.user?.email);
+      console.log(info);
+
       toast.success("Wow ! user successfully Register");
 
       navigate(from, { replace: true });
@@ -45,6 +49,8 @@ const Register = () => {
         photo: result?.user?.photoURL,
         role: "customer",
       });
+      await axios.post("/jwt", result?.user?.email);
+      console.log(data);
       navigate(from, { replace: true });
       toast.success("Google login successfully.");
     } catch (err) {
