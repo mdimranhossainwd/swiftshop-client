@@ -37,20 +37,6 @@ const DeliveryMenu = () => {
       >
         Profile Settings
       </NavLink>
-
-      <NavLink
-        className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="notifications"
-      >
-        Notifications
-      </NavLink>
-
-      <NavLink
-        className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
-        to="support"
-      >
-        Support
-      </NavLink>
     </>
   );
 };

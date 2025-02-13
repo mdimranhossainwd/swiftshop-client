@@ -24,12 +24,12 @@ const CustomerMenu = () => {
         Track Order
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
         to="review-queue"
       >
         Cart
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}

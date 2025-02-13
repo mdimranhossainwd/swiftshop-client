@@ -22,11 +22,11 @@ import PaymentHistoryPages from "../pages/PaymentHistoryPages";
 import ProductDetail from "../pages/ProductDetail";
 import ProductsPages from "../pages/ProductsPages";
 import RevenuePages from "../pages/RevenuePages";
+import SupportPage from "../pages/SupportPage";
 import TrackOrderPages from "../pages/TrackOrderPages";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
 import PrivateRouter from "./PrivateRouter";
-import SupportPage from "../pages/SupportPage";
 
 const router = createBrowserRouter([
   {
@@ -123,10 +123,9 @@ const router = createBrowserRouter([
       },
 
       {
-        path: 'support',
-        element: <SupportPage />
-      }
-
+        path: "support",
+        element: <SupportPage />,
+      },
       // Admin Routes Below
       {
         path: "all-users",
