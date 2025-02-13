@@ -45,13 +45,17 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/swiftshop/api/v1/features/${params.id}`),
+          fetch(
+            `https://swiftshop-server-mu.vercel.app/swiftshop/api/v1/features/${params.id}`
+          ),
       },
       {
         path: "/blogs/:id",
         element: <BlogDetailsPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/swiftshop/api/v1/blogs/${params.id}`),
+          fetch(
+            `https://swiftshop-server-mu.vercel.app/swiftshop/api/v1/blogs/${params.id}`
+          ),
       },
       {
         path: "/wishlists",
