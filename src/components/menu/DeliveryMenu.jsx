@@ -17,12 +17,12 @@ const DeliveryMenu = () => {
         Assigned Orders
       </NavLink>
 
-      <NavLink
+      {/* <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}
         to="delivery-history"
       >
         Delivery History
-      </NavLink>
+      </NavLink> */}
 
       <NavLink
         className={({ isActive }) => (isActive ? "text-[#128AED]" : "")}

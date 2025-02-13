@@ -26,6 +26,7 @@ import TrackOrderPages from "../pages/TrackOrderPages";
 import WishlistsPage from "../pages/WishlistsPage";
 import Profile from "../shared/Profile";
 import PrivateRouter from "./PrivateRouter";
+import SupportPage from "../pages/SupportPage";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,11 @@ const router = createBrowserRouter([
         path: "earning",
         element: <EarningPages />,
       },
+
+      {
+        path: 'support',
+        element: <SupportPage />
+      }
 
       // Admin Routes Below
       {
