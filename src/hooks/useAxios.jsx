@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://swiftshop-server-mu.vercel.app/swiftshop/api/v1",
+  baseURL: "https://swiftshop-server.onrender.com/swiftshop/api/v1",
   withCredentials: true,
 });
 

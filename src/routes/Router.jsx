@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://swiftshop-server-mu.vercel.app/swiftshop/api/v1/features/${params.id}`
+            `https://swiftshop-server.onrender.com/swiftshop/api/v1/features/${params.id}`
           ),
       },
       {
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
         element: <BlogDetailsPage />,
         loader: ({ params }) =>
           fetch(
-            `https://swiftshop-server-mu.vercel.app/swiftshop/api/v1/blogs/${params.id}`
+            `https://swiftshop-server.onrender.com/swiftshop/api/v1/blogs/${params.id}`
           ),
       },
       {
