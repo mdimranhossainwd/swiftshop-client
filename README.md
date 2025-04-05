@@ -22,3 +22,24 @@ The goal of building SwiftShop was to:
 - Gain experience designing mobile-first responsive UIs.
 
 ---
+
+
+
+## ✨ Key Features
+
+- 👤 **User Authentication (JWT + Firebase)**
+- 🛒 **Dynamic Cart Functionality**
+  - Add to cart (with quantity incrementing)
+  - Remove item from cart
+  - Real-time cart total calculation
+- 🧾 **Order & Checkout System**
+- 💳 **Stripe Payment Integration**
+- 📦 **Product Management**
+  - Admin can add, edit, or delete products
+  - Product fields: name, price, brand, stock, images, rating, warranty, etc.
+- 🔐 **Role-Based Dashboards**
+  - Admin: Product/Order/User management
+  - Customer: Order history, cart
+  - Deliveryman: Order delivery tracking
+- 📱 Fully Responsive (Mobile + Desktop)
+
