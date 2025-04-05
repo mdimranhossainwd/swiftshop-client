@@ -43,3 +43,50 @@ The goal of building SwiftShop was to:
   - Deliveryman: Order delivery tracking
 - 📱 Fully Responsive (Mobile + Desktop)
 
+
+
+---
+
+## 🧰 Technologies Used
+
+### 🚀 Frontend
+
+- **React.js**
+- **React Router DOM**
+- **Tailwind CSS** & **DaisyUI**
+- **TanStack Query (React Query)** – For data fetching & caching
+- **Axios** – For HTTP requests
+- **Firebase Authentication**
+- **React Icons**
+
+### ⚙️ Backend
+
+- **Node.js**
+- **Express.js**
+- **MongoDB**
+- **JWT (JSON Web Token)** – Secure route protection
+- **Stripe** – Payment integration
+- **Dotenv**, **Cors**, **Helmet** – Security & environment configuration
+
+---
+
+## 📦 Packages & Libraries
+
+Frontend:
+- react
+- react-router-dom
+- @tanstack/react-query
+- axios
+- firebase
+- tailwindcss
+- NextUI
+- react-icons
+
+Backend:
+- Node.js
+- Express.js
+- MongoDB
+- JSON Web Token (JWT)
+- CORS & Dotenv
+- Stripe Payment API
+
